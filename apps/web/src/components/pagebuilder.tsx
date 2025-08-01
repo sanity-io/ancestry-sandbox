@@ -13,10 +13,24 @@ import { FeatureCardsWithIcon } from "./sections/feature-cards-with-icon";
 import { HeroBlock } from "./sections/hero";
 import { ImageLinkCards } from "./sections/image-link-cards";
 import { SubscribeNewsletter } from "./sections/subscribe-newsletter";
+import { ProductOverview } from "./sections/product-overview";
+import { TitleBlock } from "./sections/title";
 
-type PageBlock = NonNullable<
-  NonNullable<QueryHomePageDataResult>["pageBuilder"]
->[number];
+// Extend PageBlock to include productOverview block type
+type ProductOverviewBlock = {
+  _type: 'productOverview';
+  products: any[];
+  loggedInProducts?: any[];
+  callToAction: string;
+  disclaimers?: any[];
+  [key: string]: any;
+};
+
+type PageBlock =
+  NonNullable<
+    NonNullable<QueryHomePageDataResult>["pageBuilder"]
+  >[number]
+  | ProductOverviewBlock;
 
 export type PageBuilderProps = {
   pageBuilder: PageBlock[];
@@ -37,9 +51,11 @@ const BLOCK_COMPONENTS = {
   featureCardsIcon: FeatureCardsWithIcon,
   subscribeNewsletter: SubscribeNewsletter,
   imageLinkCards: ImageLinkCards,
+  productOverview: ProductOverview,
+  title: TitleBlock,
 } as const;
 
-type BlockType = keyof typeof BLOCK_COMPONENTS;
+type BlockType = keyof typeof BLOCK_COMPONENTS | 'productOverview' | 'title';
 
 export function PageBuilder({
   pageBuilder: initialPageBuilder = [],
@@ -70,9 +86,7 @@ export function PageBuilder({
       }).toString()}
     >
       {pageBuilder.map((block) => {
-        const Component = BLOCK_COMPONENTS[block._type] as ComponentType<
-          PagebuilderType<BlockType>
-        >;
+        const Component = BLOCK_COMPONENTS[block._type] as ComponentType<any>;
 
         if (!Component) {
           return (
@@ -85,6 +99,30 @@ export function PageBuilder({
           );
         }
 
+        // Type guard for productOverview block
+        if (block._type === 'productOverview') {
+          const poBlock = block as ProductOverviewBlock;
+          return (
+            <div
+              key={`${block._type}-${block._key}`}
+              data-sanity={createDataAttribute({
+                id: id,
+                baseUrl: studioUrl,
+                projectId: projectId,
+                dataset: dataset,
+                type: type,
+                path: `pageBuilder[_key=="${block._key}"]`,
+              }).toString()}
+            >
+              <ProductOverview
+                products={poBlock.products}
+                loggedInProducts={poBlock.loggedInProducts}
+                callToAction={poBlock.callToAction}
+                disclaimers={poBlock.disclaimers}
+              />
+            </div>
+          );
+        }
         return (
           <div
             key={`${block._type}-${block._key}`}

@@ -20,6 +20,7 @@ export const blog = defineType({
   orderings: [orderRankOrdering],
   description:
     "A blog post that will be published on the website. Add a title, description, author, and content to create a new article for readers.",
+  initialValue: { __i18n_lang: 'en' },
   fields: [
     orderRankField({ type: "blog" }),
     defineField({
@@ -132,6 +133,35 @@ export const blog = defineType({
       type: "richText",
       description:
         "The main content of your blog post with text, images, and formatting",
+      group: GROUP.MAIN_CONTENT,
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      description: 'Categorize this blog as Entertainment & Culture, Family History, History, DNA, Customer Stories, Names, Holidays, or Ancestry News. Used for organizing blogs in the Studio.',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Entertainment & Culture', value: 'entertainment-culture' },
+          { title: 'Family History', value: 'family-history' },
+          { title: 'History', value: 'history' },
+          { title: 'DNA', value: 'dna' },
+          { title: 'Customer Stories', value: 'customer-stories' },
+          { title: 'Names', value: 'names' },
+          { title: 'Holidays', value: 'holidays' },
+          { title: 'Ancestry News', value: 'ancestry-news' },
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
+      group: GROUP.MAIN_CONTENT,
+    }),
+    defineField({
+      name: 'isFeatured',
+      title: 'Featured Post',
+      description: 'Toggle to mark this blog as a Featured Post. Featured posts may be highlighted or prioritized in listings.',
+      type: 'boolean',
+      initialValue: false,
       group: GROUP.MAIN_CONTENT,
     }),
     ...seoFields,

@@ -2,6 +2,7 @@ import { assist } from "@sanity/assist";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { presentationTool } from "sanity/presentation";
+import {documentInternationalization} from '@sanity/document-internationalization'
 import { structureTool } from "sanity/structure";
 import {
   unsplashAssetSource,
@@ -9,7 +10,7 @@ import {
 } from "sanity-plugin-asset-source-unsplash";
 import { iconPicker } from "sanity-plugin-icon-picker";
 import { media, mediaAssetSource } from "sanity-plugin-media";
-
+import {fieldLevelExperiments} from '@sanity/personalization-plugin';
 import { Logo } from "./components/logo";
 import { locations } from "./location";
 import { presentationUrl } from "./plugins/presentation-url";
@@ -21,6 +22,21 @@ const projectId = process.env.SANITY_STUDIO_PROJECT_ID ?? "";
 const dataset = process.env.SANITY_STUDIO_DATASET;
 const title = process.env.SANITY_STUDIO_TITLE;
 const presentationOriginUrl = process.env.SANITY_STUDIO_PRESENTATION_URL;
+
+const loggedInVariants = {
+  id: 'loggedIn',
+  label: 'Logged In Variant',
+  variants: [
+    {
+      id: 'logged out',
+      label: 'Logged Out',
+    },
+    {
+      id: 'logged in',
+      label: 'Logged In',
+    },
+  ],
+}
 
 export default defineConfig({
   name: "default",
@@ -43,14 +59,39 @@ export default defineConfig({
         },
       },
     }),
-    assist(),
+    assist( {
+      translate: {
+        document: {
+            // The name of the field that holds the current language
+            // in the form of a language code e.g. 'en', 'fr', 'nb_NO'.
+            // Required
+            languageField: '__i18n_lang',
+            // Optional extra filter for document types.
+            // If not set, translation is enabled for all documents
+            // that has a field with the name defined above.
+            documentTypes: ['page', 'blog'],	
+        }
+      }
+    }),
     structureTool({
       structure,
     }),
     visionTool(),
     iconPicker(),
+    fieldLevelExperiments({
+      fields: ['title', 'richText', 'image', 'button', 'productOverview', 'product', 'faq' ],
+      experiments: [loggedInVariants],
+    }),
     media(),
     presentationUrl(),
+    documentInternationalization({
+      supportedLanguages: [
+        {id: 'es', title: 'Spanish'},
+        {id: 'en', title: 'English'}
+      ],
+      schemaTypes: ['page', 'productOverview', 'product', 'faq'],
+      languageField: '__i18n_lang',
+    }),
     unsplashImageAsset(),
   ],
 

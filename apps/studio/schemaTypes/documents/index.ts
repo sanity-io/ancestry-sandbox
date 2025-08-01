@@ -7,7 +7,12 @@ import { homePage } from "./home-page";
 import { navbar } from "./navbar";
 import { page } from "./page";
 import { settings } from "./settings";
+import feature from './feature'
+import product from './product'
+import disclaimer from './disclaimer'
 
 export const singletons = [homePage, blogIndex, settings, footer, navbar];
 
-export const documents = [blog, page, faq, author, ...singletons];
+export const documents = [blog, page, faq, author, feature, product, disclaimer, ...singletons];
+
+export { default as feature } from './feature'

@@ -16,6 +16,7 @@ export const page = defineType({
   description:
     "Create a new page for your website, like an 'About Us' or 'Contact' page. Each page has its own web address and content that you can customize.",
   groups: GROUPS,
+  initialValue: { __i18n_lang: 'en' },
   fields: [
     defineField({
       name: "title",
@@ -75,6 +76,23 @@ export const page = defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      description: 'Categorize this page as Trees, Search, Memories, DNA, or Explore. Used for organizing English pages in the Studio.',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Trees', value: 'trees' },
+          { title: 'Search', value: 'search' },
+          { title: 'Memories', value: 'memories' },
+          { title: 'DNA', value: 'dna' },
+          { title: 'Explore', value: 'explore' },
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
     }),
     pageBuilderField,
     ...seoFields.filter((field) => field.name !== "seoHideFromLists"),

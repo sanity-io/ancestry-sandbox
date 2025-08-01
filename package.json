@@ -19,5 +19,9 @@
   "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@sanity/personalization-plugin": "^2.4.0",
+    "next-sanity": "^9.9.9"
   }
 }

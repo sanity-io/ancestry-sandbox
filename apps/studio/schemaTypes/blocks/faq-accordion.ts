@@ -27,32 +27,6 @@ export const faqAccordion = defineType({
       description: "Additional context below the main title",
     }),
     defineField({
-      name: "link",
-      title: "Link",
-      type: "object",
-      description: "Optional link for additional content or actions",
-      fields: [
-        defineField({
-          name: "title",
-          type: "string",
-          title: "Link Title",
-          description: "The text to display for the link",
-        }),
-        defineField({
-          name: "description",
-          type: "string",
-          title: "Link Description",
-          description: "A brief description of where the link leads to",
-        }),
-        defineField({
-          name: "url",
-          type: "customUrl",
-          title: "URL",
-          description: "The destination URL for the link",
-        }),
-      ],
-    }),
-    defineField({
       name: "faqs",
       type: "array",
       title: "FAQs",

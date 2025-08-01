@@ -6,6 +6,7 @@ export const author = defineType({
   title: "Author",
   type: "document",
   icon: UserIcon,
+  initialValue: { __i18n_lang: 'en' },
   fields: [
     defineField({
       name: "name",

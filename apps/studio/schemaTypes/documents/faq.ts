@@ -11,6 +11,7 @@ export const faq = defineType({
   description:
     "A simple question and answer pair that helps visitors find information quickly. Think of it like writing down the questions customers often ask, along with clear answers.",
   icon: MessageCircleQuestion,
+  initialValue: { __i18n_lang: 'en' },
   fields: [
     defineField({
       name: "title",

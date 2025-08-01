@@ -54,6 +54,7 @@ const blogCardFragment = /* groq */ `
   "slug":slug.current,
   richText,
   orderRank,
+  category,
   ${imageFragment},
   publishedAt,
   ${blogAuthorFragment}
@@ -148,6 +149,60 @@ const subscribeNewsletterBlock = /* groq */ `
   }
 `;
 
+const productOverviewBlock = /* groq */ `
+  _type == "productOverview" => {
+    ...,
+    products[]{
+      product->{
+        _id,
+        title,
+        image,
+        price,
+        description,
+        features[]->{
+          _id,
+          title,
+          ancestryDnaRequired
+        }
+      }
+    },
+    loggedInProducts[]->{
+      _id,
+      title,
+      image,
+      price,
+      description,
+      features[]->{
+        _id,
+        title,
+        ancestryDnaRequired
+      }
+    },
+    disclaimers[]->{
+      _id,
+      title,
+      text
+    }
+  }
+`;
+
+const titleBlock = /* groq */ `
+  _type == "title" => {
+    ...
+  }
+`;
+
+const featureCardsIconBlock = /* groq */ `
+  _type == "featureCardsIcon" => {
+    ...,
+    disclaimers[]->{
+      _id,
+      title,
+      text
+    }
+  }
+`;
+
 const pageBuilderFragment = /* groq */ `
   pageBuilder[]{
     ...,
@@ -156,7 +211,10 @@ const pageBuilderFragment = /* groq */ `
     ${heroBlock},
     ${faqAccordionBlock},
     ${subscribeNewsletterBlock},
-    ${imageLinkCardsBlock}
+    ${imageLinkCardsBlock},
+    ${featureCardsIconBlock},
+    ${productOverviewBlock},
+    ${titleBlock}
   }
 `;
 
@@ -206,6 +264,9 @@ export const queryBlogIndexPageData = defineQuery(`
     ${pageBuilderFragment},
     "slug": slug.current,
     "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){
+      ${blogCardFragment}
+    },
+    "featuredBlogs": *[_type == "blog" && (seoHideFromLists != true) && isFeatured == true] | order(orderRank asc){
       ${blogCardFragment}
     }
   }
