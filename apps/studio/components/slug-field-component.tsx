@@ -31,7 +31,7 @@ import { styled } from "styled-components";
 
 import { getDocumentPath, stringToPathname } from "../utils/helper";
 
-const presentationOriginUrl = process.env.SANITY_STUDIO_PRESENTATION_URL;
+const presentationOriginUrl = process.env.SANITY_STUDIO_PRESENTATION_URL?.replace(/\/$/, '');
 
 const UnlockButton = styled(Button)`
   cursor: pointer;

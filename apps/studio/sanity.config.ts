@@ -21,7 +21,7 @@ import { createPageTemplate } from "./utils/helper";
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID ?? "";
 const dataset = process.env.SANITY_STUDIO_DATASET;
 const title = process.env.SANITY_STUDIO_TITLE;
-const presentationOriginUrl = process.env.SANITY_STUDIO_PRESENTATION_URL;
+const presentationOriginUrl = process.env.SANITY_STUDIO_PRESENTATION_URL?.replace(/\/$/, '') ?? "http://localhost:3000";
 
 const loggedInVariants = {
   id: 'loggedIn',
