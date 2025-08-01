@@ -183,6 +183,11 @@ export type FaqAccordion = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "faq";
   }>;
+  link?: {
+    title?: string;
+    description?: string;
+    url?: CustomUrl;
+  };
 };
 
 export type FeatureCardsIcon = {
@@ -1520,7 +1525,13 @@ export type QueryHomePageDataResult = {
               }
           > | null;
         }>;
-        link: null;
+        link: {
+          title?: string;
+          description?: string;
+          url?: CustomUrl;
+          openInNewTab: boolean | null;
+          href: string | null;
+        } | null;
       }
     | {
         _key: string;
@@ -2062,7 +2073,13 @@ export type QuerySlugPageDataResult = {
               }
           > | null;
         }>;
-        link: null;
+        link: {
+          title?: string;
+          description?: string;
+          url?: CustomUrl;
+          openInNewTab: boolean | null;
+          href: string | null;
+        } | null;
       }
     | {
         _key: string;
@@ -2598,7 +2615,13 @@ export type QueryBlogIndexPageDataResult = {
               }
           > | null;
         }>;
-        link: null;
+        link: {
+          title?: string;
+          description?: string;
+          url?: CustomUrl;
+          openInNewTab: boolean | null;
+          href: string | null;
+        } | null;
       }
     | {
         _key: string;

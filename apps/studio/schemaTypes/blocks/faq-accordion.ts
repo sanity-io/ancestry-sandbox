@@ -1,6 +1,8 @@
 import { MessageCircleQuestion } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
+import { customUrl } from "../definitions/custom-url";
+
 export const faqAccordion = defineType({
   name: "faqAccordion",
   type: "object",
@@ -39,6 +41,32 @@ export const faqAccordion = defineType({
         },
       ],
       validation: (Rule) => [Rule.required(), Rule.unique()],
+    }),
+    defineField({
+      name: "link",
+      type: "object",
+      title: "Link",
+      description: "Optional link to display below the FAQ accordion",
+      fields: [
+        defineField({
+          name: "title",
+          type: "string",
+          title: "Link Title",
+          description: "The title text for the link",
+        }),
+        defineField({
+          name: "description",
+          type: "string",
+          title: "Link Description",
+          description: "The description text for the link",
+        }),
+        defineField({
+          name: "url",
+          type: customUrl.name,
+          title: "Link URL",
+          description: "The URL for the link",
+        }),
+      ],
     }),
   ],
   preview: {

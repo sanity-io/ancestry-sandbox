@@ -1200,6 +1200,37 @@
             }
           },
           "optional": false
+        },
+        "link": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "title": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "description": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "url": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "customUrl"
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": true
         }
       }
     }

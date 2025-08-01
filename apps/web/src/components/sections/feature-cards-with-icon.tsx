@@ -3,7 +3,7 @@ import { Badge } from "@workspace/ui/components/badge";
 import type { PagebuilderType } from "@/types";
 
 import { RichText } from "../richtext";
-import { SanityIcon } from "../sanity-icon";
+import { SanityImage } from "../sanity-image";
 
 type FeatureCardsWithIconProps = PagebuilderType<"featureCardsIcon">;
 
@@ -12,8 +12,15 @@ type FeatureCardProps = {
     title?: string;
     richText?: any;
     image?: {
-      asset?: { url?: string };
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+      };
+      hotspot?: any;
+      crop?: any;
       alt?: string;
+      _type: "image";
     };
     _key?: string;
   };
@@ -32,10 +39,12 @@ function FeatureCard({ card }: FeatureCardProps) {
       </div>
       {image && (
         <div className="mt-6 flex justify-center">
-          <img
-            src={image.asset?.url}
+          <SanityImage
+            asset={image}
             alt={image.alt || title || "Feature image"}
             className="rounded-xl max-h-48 object-contain"
+            width={192}
+            height={192}
           />
         </div>
       )}
@@ -76,7 +85,10 @@ export function FeatureCardsWithIcon({
         {disclaimers?.length ? (
           <div className="mt-6 text-[8px] text-center text-muted-foreground space-y-1">
             {disclaimers.map((d) => (
-              <div key={d._id} className="flex items-start justify-center gap-1">
+              <div
+                key={d._id}
+                className="flex items-start justify-center gap-1"
+              >
                 <span className="font-bold">*</span>
                 <RichText richText={d.text} className="inline" />
               </div>
