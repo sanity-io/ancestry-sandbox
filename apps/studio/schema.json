@@ -725,7 +725,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "richText": {
           "type": "objectAttribute",
@@ -1018,14 +1018,14 @@
                   "value": {
                     "type": "string"
                   },
-                  "optional": true
+                  "optional": false
                 },
                 "description": {
                   "type": "objectAttribute",
                   "value": {
                     "type": "string"
                   },
-                  "optional": true
+                  "optional": false
                 },
                 "image": {
                   "type": "objectAttribute",
@@ -1148,7 +1148,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "subtitle": {
           "type": "objectAttribute",
@@ -1199,7 +1199,7 @@
               }
             }
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -2070,7 +2070,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "richText": {
           "type": "objectAttribute",
@@ -2852,7 +2852,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "columns": {
         "type": "objectAttribute",
@@ -2929,7 +2929,7 @@
                         }
                       }
                     },
-                    "optional": true
+                    "optional": false
                   },
                   "_type": {
                     "type": "objectAttribute",
@@ -3058,7 +3058,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "subtitle": {
         "type": "objectAttribute",
@@ -3191,21 +3191,21 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "siteTitle": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "siteDescription": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "logo": {
         "type": "objectAttribute",
@@ -3377,7 +3377,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "displayFeaturedBlogs": {
         "type": "objectAttribute",
@@ -3572,7 +3572,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "pageBuilder": {
         "type": "objectAttribute",
@@ -3714,7 +3714,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "text": {
         "type": "objectAttribute",
@@ -3722,7 +3722,7 @@
           "type": "inline",
           "name": "richText"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -3766,7 +3766,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "description": {
         "type": "objectAttribute",
@@ -3824,7 +3824,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "position": {
         "type": "objectAttribute",
@@ -3951,7 +3951,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "description": {
         "type": "objectAttribute",
@@ -3966,7 +3966,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "authors": {
         "type": "objectAttribute",
@@ -4010,7 +4010,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "publishedAt": {
         "type": "objectAttribute",
@@ -4079,13 +4079,61 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "richText": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",
           "name": "richText"
+        },
+        "optional": true
+      },
+      "category": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "entertainment-culture"
+            },
+            {
+              "type": "string",
+              "value": "family-history"
+            },
+            {
+              "type": "string",
+              "value": "history"
+            },
+            {
+              "type": "string",
+              "value": "dna"
+            },
+            {
+              "type": "string",
+              "value": "customer-stories"
+            },
+            {
+              "type": "string",
+              "value": "names"
+            },
+            {
+              "type": "string",
+              "value": "holidays"
+            },
+            {
+              "type": "string",
+              "value": "ancestry-news"
+            }
+          ]
+        },
+        "optional": false
+      },
+      "isFeatured": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
         },
         "optional": true
       },
@@ -4433,7 +4481,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "richText": {
         "type": "objectAttribute",
@@ -4485,7 +4533,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "description": {
         "type": "objectAttribute",
@@ -4500,7 +4548,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "image": {
         "type": "objectAttribute",
@@ -4591,7 +4639,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "pageBuilder": {
         "type": "objectAttribute",
@@ -4785,7 +4833,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "source": {
           "type": "objectAttribute",
@@ -4820,7 +4868,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": true
+                "optional": false
               },
               "richText": {
                 "type": "objectAttribute",
@@ -4903,7 +4951,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": true
+                "optional": false
               },
               "image": {
                 "type": "objectAttribute",
@@ -4972,7 +5020,7 @@
                     }
                   }
                 },
-                "optional": true
+                "optional": false
               },
               "description": {
                 "type": "objectAttribute",
@@ -4980,14 +5028,14 @@
                   "type": "inline",
                   "name": "richText"
                 },
-                "optional": true
+                "optional": false
               },
               "price": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "number"
                 },
-                "optional": true
+                "optional": false
               },
               "features": {
                 "type": "objectAttribute",
@@ -5474,7 +5522,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": true
+                "optional": false
               },
               "richText": {
                 "type": "objectAttribute",
@@ -5535,7 +5583,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": true
+                "optional": false
               },
               "image": {
                 "type": "objectAttribute",
@@ -5604,7 +5652,7 @@
                     }
                   }
                 },
-                "optional": true
+                "optional": false
               },
               "description": {
                 "type": "objectAttribute",
@@ -5612,14 +5660,14 @@
                   "type": "inline",
                   "name": "richText"
                 },
-                "optional": true
+                "optional": false
               },
               "price": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "number"
                 },
-                "optional": true
+                "optional": false
               },
               "features": {
                 "type": "objectAttribute",
@@ -5757,7 +5805,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "image": {
         "type": "objectAttribute",
@@ -5826,7 +5874,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "description": {
         "type": "objectAttribute",
@@ -5834,14 +5882,14 @@
           "type": "inline",
           "name": "richText"
         },
-        "optional": true
+        "optional": false
       },
       "price": {
         "type": "objectAttribute",
         "value": {
           "type": "number"
         },
-        "optional": true
+        "optional": false
       },
       "features": {
         "type": "objectAttribute",
@@ -5953,7 +6001,7 @@
               }
             }
           },
-          "optional": true
+          "optional": false
         },
         "loggedInProducts": {
           "type": "objectAttribute",
@@ -6004,7 +6052,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "disclaimers": {
           "type": "objectAttribute",
@@ -6680,7 +6728,7 @@
               }
             ]
           },
-          "optional": true
+          "optional": false
         },
         "openInNewTab": {
           "type": "objectAttribute",
@@ -7287,7 +7335,7 @@
             },
             "dereferencesTo": "assist.instruction.context"
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -7466,7 +7514,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "description": {
           "type": "objectAttribute",
