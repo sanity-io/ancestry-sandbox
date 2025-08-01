@@ -7,6 +7,9 @@ import { dataset, projectId, studioUrl } from "@/lib/sanity/api";
 import type { QueryHomePageDataResult } from "@/lib/sanity/sanity.types";
 import type { PagebuilderType } from "@/types";
 
+// Ensure studioUrl doesn't have a trailing slash for data attributes
+const sanitizedStudioUrl = studioUrl?.replace(/\/$/, '') || "http://localhost:3333";
+
 import { CTABlock } from "./sections/cta";
 import { FaqAccordion } from "./sections/faq-accordion";
 import { FeatureCardsWithIcon } from "./sections/feature-cards-with-icon";
@@ -78,7 +81,7 @@ export function PageBuilder({
       className="flex flex-col gap-16 my-16 max-w-7xl mx-auto"
       data-sanity={createDataAttribute({
         id: id,
-        baseUrl: studioUrl,
+        baseUrl: sanitizedStudioUrl,
         projectId: projectId,
         dataset: dataset,
         type: type,
@@ -107,7 +110,7 @@ export function PageBuilder({
               key={`${block._type}-${block._key}`}
               data-sanity={createDataAttribute({
                 id: id,
-                baseUrl: studioUrl,
+                baseUrl: sanitizedStudioUrl,
                 projectId: projectId,
                 dataset: dataset,
                 type: type,
@@ -128,7 +131,7 @@ export function PageBuilder({
             key={`${block._type}-${block._key}`}
             data-sanity={createDataAttribute({
               id: id,
-              baseUrl: studioUrl,
+              baseUrl: sanitizedStudioUrl,
               projectId: projectId,
               dataset: dataset,
               type: type,

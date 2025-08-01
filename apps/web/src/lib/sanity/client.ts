@@ -4,6 +4,9 @@ import { createClient } from "next-sanity";
 
 import { apiVersion, dataset, projectId, studioUrl } from "./api";
 
+// Ensure studioUrl is properly formatted
+const sanitizedStudioUrl = studioUrl?.replace(/\/$/, '') || "http://localhost:3333";
+
 export const client = createClient({
   projectId,
   dataset,
@@ -11,7 +14,7 @@ export const client = createClient({
   useCdn: process.env.NODE_ENV === "production",
   perspective: "published",
   stega: {
-    studioUrl,
+    studioUrl: sanitizedStudioUrl,
     enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",
   },
 });
