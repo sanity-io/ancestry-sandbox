@@ -32,7 +32,14 @@ const markDefsFragment = /* groq */ `
       collection->{
         _id,
         title,
-        key
+        key,
+        fragments[isActive == true] {
+          _key,
+          label,
+          value,
+          key,
+          isActive
+        }
       }
     }
   }

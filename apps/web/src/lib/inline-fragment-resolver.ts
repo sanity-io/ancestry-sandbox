@@ -165,3 +165,74 @@ export function debugInlineFragmentReferences(richTextArray: any[]): void {
 
   console.log(`Found ${fragmentCount} inline fragment reference(s)`)
 }
+
+// Batch resolver for multiple fragments to reduce API calls
+export async function resolveInlineFragmentReferencesBatch(
+  fragmentRefs: Array<{
+    _type: 'inlineFragmentReference'
+    collection: { _ref: string; _type: 'reference' }
+    fragment: string
+    displayFormat: 'value-only' | 'label-value' | 'value-label'
+  }>
+): Promise<Array<{ fragmentKey: string; resolvedValue: string | null }>> {
+  if (!fragmentRefs.length) return []
+
+  try {
+    // Group fragments by collection to minimize queries
+    const collectionGroups = fragmentRefs.reduce((groups, ref) => {
+      const collectionId = ref.collection._ref
+      if (!groups[collectionId]) {
+        groups[collectionId] = []
+      }
+      groups[collectionId].push(ref)
+      return groups
+    }, {} as Record<string, typeof fragmentRefs>)
+
+    // Fetch all collections at once
+    const collectionIds = Object.keys(collectionGroups)
+    const collectionsQuery = `*[_type == "fragmentCollection" && _id in $collectionIds] {
+      _id,
+      title,
+      key,
+      fragments[] {
+        _key,
+        label,
+        value,
+        key,
+        isActive
+      }
+    }`
+
+    const collections = await client.fetch(collectionsQuery, { collectionIds })
+    
+    // Create a lookup map
+    const collectionMap = collections.reduce((map, collection) => {
+      map[collection._id] = collection
+      return map
+    }, {} as Record<string, any>)
+
+    // Resolve all fragments
+    return fragmentRefs.map(ref => {
+      const collection = collectionMap[ref.collection._ref]
+      if (!collection) return { fragmentKey: ref.fragment, resolvedValue: null }
+
+      const fragment = collection.fragments?.find((f: any) => 
+        f.key === ref.fragment && f.isActive === true
+      )
+
+      if (!fragment) return { fragmentKey: ref.fragment, resolvedValue: null }
+
+      const formattedValue = formatFragmentValue({
+        label: fragment.label,
+        value: fragment.value,
+        displayFormat: ref.displayFormat
+      })
+
+      return { fragmentKey: ref.fragment, resolvedValue: formattedValue }
+    })
+
+  } catch (error) {
+    console.error('Error resolving batch fragments:', error)
+    return fragmentRefs.map(ref => ({ fragmentKey: ref.fragment, resolvedValue: null }))
+  }
+}
