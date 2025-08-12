@@ -38,7 +38,7 @@ interface RichTextBlock {
 // Flexible FAQ type that can accept different rich text structures
 interface FlexibleFaq {
   _id: string;
-  title: string;
+  title: string | null;
   richText?: RichTextBlock[] | null;
 }
 
@@ -88,7 +88,7 @@ export function FaqJsonLd({ faqs }: FaqJsonLdProps) {
     mainEntity: validFaqs.map(
       (faq): Question => ({
         "@type": "Question",
-        name: faq.title,
+        name: faq.title || "Untitled Question",
         acceptedAnswer: {
           "@type": "Answer",
           text: extractPlainTextFromRichText(faq.richText),
@@ -100,7 +100,7 @@ export function FaqJsonLd({ faqs }: FaqJsonLdProps) {
   return <JsonLdScript data={faqJsonLd} id="faq-json-ld" />;
 }
 
-function buildSafeImageUrl(image?: { asset?: { _ref: string } }) {
+function buildSafeImageUrl(image?: { asset?: { _ref: string } } | null) {
   if (!image?.asset?._ref) {
     return undefined;
   }
@@ -190,7 +190,7 @@ export function OrganizationJsonLd({ settings }: OrganizationJsonLdProps) {
   const organizationJsonLd: WithContext<Organization> = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: settings.siteTitle,
+    name: settings.siteTitle || "Website",
     description: settings.siteDescription || undefined,
     url: baseUrl,
     logo: settings.logo
@@ -225,12 +225,12 @@ export function WebSiteJsonLd({ settings }: WebSiteJsonLdProps) {
   const websiteJsonLd: WithContext<WebSite> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: settings.siteTitle,
+    name: settings.siteTitle || "Website",
     description: settings.siteDescription || undefined,
     url: baseUrl,
     publisher: {
       "@type": "Organization",
-      name: settings.siteTitle,
+      name: settings.siteTitle || "Website",
     } as Organization,
   };
 

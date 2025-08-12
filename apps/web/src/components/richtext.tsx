@@ -9,6 +9,7 @@ import {
 import { parseChildrenToSlug } from "@/utils";
 
 import { SanityImage } from "./sanity-image";
+import { InlineFragmentAnnotation } from "./inline-fragment-annotation";
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
@@ -82,6 +83,17 @@ const components: Partial<PortableTextReactComponents> = {
           {children}
         </Link>
       );
+    },
+    inlineFragmentReference: ({ children, value }) => {
+      return (
+        <InlineFragmentAnnotation
+          collection={value.collection}
+          fragment={value.fragment}
+          displayFormat={value.displayFormat}
+        >
+          {children}
+        </InlineFragmentAnnotation>
+      )
     },
   },
   types: {

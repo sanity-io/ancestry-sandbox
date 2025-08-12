@@ -1,5 +1,7 @@
 import { ImageIcon, LinkIcon } from "@sanity/icons";
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { Tag } from "lucide-react";
+import { InlineFragmentSelector } from "../../components/inline-fragment-selector";
 
 const richTextMembers = [
   defineArrayMember({
@@ -29,6 +31,46 @@ const richTextMembers = [
             defineField({
               name: "customLink",
               type: "customUrl",
+            }),
+          ],
+        },
+        {
+          name: "inlineFragmentReference",
+          type: "object",
+          title: "Fragment Reference",
+          icon: Tag,
+          fields: [
+            defineField({
+              name: "collection",
+              title: "Fragment Collection",
+              description: "Select the collection containing the fragment",
+              type: "reference",
+              to: [{type: "fragmentCollection"}],
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "fragment",
+              title: "Fragment",
+              description: "Select the specific fragment from the collection",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+              components: {
+                input: InlineFragmentSelector
+              },
+            }),
+            defineField({
+              name: "displayFormat",
+              title: "Display Format",
+              description: "How to display the fragment value",
+              type: "string",
+              options: {
+                list: [
+                  {title: "Value only", value: "value-only"},
+                  {title: "Label: Value", value: "label-value"},
+                  {title: "Value (Label)", value: "value-label"},
+                ],
+              },
+              initialValue: "value-only",
             }),
           ],
         },

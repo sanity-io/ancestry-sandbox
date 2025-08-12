@@ -26,7 +26,15 @@ const customLinkFragment = /* groq */ `
 const markDefsFragment = /* groq */ `
   markDefs[]{
     ...,
-    ${customLinkFragment}
+    ${customLinkFragment},
+    _type == "inlineFragmentReference" => {
+      ...,
+      collection->{
+        _id,
+        title,
+        key
+      }
+    }
   }
 `;
 

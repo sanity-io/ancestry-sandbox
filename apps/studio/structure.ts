@@ -1,5 +1,6 @@
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import {
+  AlertTriangle,
   BookMarked,
   CogIcon,
   File,
@@ -13,7 +14,7 @@ import {
   User,
   Star,
   Package,
-  AlertTriangle,
+  FolderOpen,
 } from "lucide-react";
 import type {
   StructureBuilder,
@@ -252,6 +253,7 @@ export const structure = (
       createLanguageFolders({ S, type: "author", title: "Authors", icon: User }),
       createLanguageFolders({ S, type: "product", title: "Products", icon: Package }),
       createLanguageFolders({ S, type: "disclaimer", title: "Disclaimers", icon: AlertTriangle }),
+      createList({ S, type: "fragmentCollection", title: "Fragment Collections", icon: FolderOpen }),
       S.divider(),
       S.listItem()
         .title("Site Configuration")

@@ -80,11 +80,24 @@ export type SubscribeNewsletter = {
     }>;
     style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
     listItem?: "number" | "bullet";
-    markDefs?: Array<{
-      customLink?: CustomUrl;
-      _type: "customLink";
-      _key: string;
-    }>;
+    markDefs?: Array<
+      | {
+          customLink?: CustomUrl;
+          _type: "customLink";
+          _key: string;
+        }
+      | {
+          collection?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "fragmentCollection";
+          };
+          fragment?: string;
+          _type: "fragmentValue";
+          _key: string;
+        }
+    >;
     level?: number;
     _type: "block";
     _key: string;
@@ -98,11 +111,24 @@ export type SubscribeNewsletter = {
     }>;
     style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
     listItem?: "number" | "bullet";
-    markDefs?: Array<{
-      customLink?: CustomUrl;
-      _type: "customLink";
-      _key: string;
-    }>;
+    markDefs?: Array<
+      | {
+          customLink?: CustomUrl;
+          _type: "customLink";
+          _key: string;
+        }
+      | {
+          collection?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "fragmentCollection";
+          };
+          fragment?: string;
+          _type: "fragmentValue";
+          _key: string;
+        }
+    >;
     level?: number;
     _type: "block";
     _key: string;
@@ -112,7 +138,7 @@ export type SubscribeNewsletter = {
 export type ImageLinkCards = {
   _type: "imageLinkCards";
   eyebrow?: string;
-  title: string;
+  title?: string;
   richText?: Array<
     | {
         children?: Array<{
@@ -123,11 +149,24 @@ export type ImageLinkCards = {
         }>;
         style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
         listItem?: "number" | "bullet";
-        markDefs?: Array<{
-          customLink?: CustomUrl;
-          _type: "customLink";
-          _key: string;
-        }>;
+        markDefs?: Array<
+          | {
+              customLink?: CustomUrl;
+              _type: "customLink";
+              _key: string;
+            }
+          | {
+              collection?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "fragmentCollection";
+              };
+              fragment?: string;
+              _type: "fragmentValue";
+              _key: string;
+            }
+        >;
         level?: number;
         _type: "block";
         _key: string;
@@ -152,8 +191,8 @@ export type ImageLinkCards = {
     } & Button
   >;
   cards?: Array<{
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     image?: {
       asset?: {
         _ref: string;
@@ -174,9 +213,9 @@ export type ImageLinkCards = {
 export type FaqAccordion = {
   _type: "faqAccordion";
   eyebrow?: string;
-  title: string;
+  title?: string;
   subtitle?: string;
-  faqs: Array<{
+  faqs?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -203,11 +242,24 @@ export type FeatureCardsIcon = {
     }>;
     style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
     listItem?: "number" | "bullet";
-    markDefs?: Array<{
-      customLink?: CustomUrl;
-      _type: "customLink";
-      _key: string;
-    }>;
+    markDefs?: Array<
+      | {
+          customLink?: CustomUrl;
+          _type: "customLink";
+          _key: string;
+        }
+      | {
+          collection?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "fragmentCollection";
+          };
+          fragment?: string;
+          _type: "fragmentValue";
+          _key: string;
+        }
+    >;
     level?: number;
     _type: "block";
     _key: string;
@@ -223,11 +275,24 @@ export type FeatureCardsIcon = {
       }>;
       style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
       listItem?: "number" | "bullet";
-      markDefs?: Array<{
-        customLink?: CustomUrl;
-        _type: "customLink";
-        _key: string;
-      }>;
+      markDefs?: Array<
+        | {
+            customLink?: CustomUrl;
+            _type: "customLink";
+            _key: string;
+          }
+        | {
+            collection?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "fragmentCollection";
+            };
+            fragment?: string;
+            _type: "fragmentValue";
+            _key: string;
+          }
+      >;
       level?: number;
       _type: "block";
       _key: string;
@@ -270,11 +335,24 @@ export type Cta = {
         }>;
         style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
         listItem?: "number" | "bullet";
-        markDefs?: Array<{
-          customLink?: CustomUrl;
-          _type: "customLink";
-          _key: string;
-        }>;
+        markDefs?: Array<
+          | {
+              customLink?: CustomUrl;
+              _type: "customLink";
+              _key: string;
+            }
+          | {
+              collection?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "fragmentCollection";
+              };
+              fragment?: string;
+              _type: "fragmentValue";
+              _key: string;
+            }
+        >;
         level?: number;
         _type: "block";
         _key: string;
@@ -303,7 +381,7 @@ export type Cta = {
 export type Hero = {
   _type: "hero";
   badge?: string;
-  title: string;
+  title?: string;
   richText?: Array<
     | {
         children?: Array<{
@@ -314,11 +392,24 @@ export type Hero = {
         }>;
         style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
         listItem?: "number" | "bullet";
-        markDefs?: Array<{
-          customLink?: CustomUrl;
-          _type: "customLink";
-          _key: string;
-        }>;
+        markDefs?: Array<
+          | {
+              customLink?: CustomUrl;
+              _type: "customLink";
+              _key: string;
+            }
+          | {
+              collection?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "fragmentCollection";
+              };
+              fragment?: string;
+              _type: "fragmentValue";
+              _key: string;
+            }
+        >;
         level?: number;
         _type: "block";
         _key: string;
@@ -354,6 +445,17 @@ export type Hero = {
       _key: string;
     } & Button
   >;
+};
+
+export type FragmentValue = {
+  _type: "fragmentValue";
+  collection?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "fragmentCollection";
+  };
+  fragment?: string;
 };
 
 export type PageBuilder = Array<
@@ -393,11 +495,24 @@ export type RichText = Array<
       }>;
       style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
       listItem?: "number" | "bullet";
-      markDefs?: Array<{
-        customLink?: CustomUrl;
-        _type: "customLink";
-        _key: string;
-      }>;
+      markDefs?: Array<
+        | {
+            customLink?: CustomUrl;
+            _type: "customLink";
+            _key: string;
+          }
+        | {
+            collection?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "fragmentCollection";
+            };
+            fragment?: string;
+            _type: "fragmentValue";
+            _key: string;
+          }
+      >;
       level?: number;
       _type: "block";
       _key: string;
@@ -423,11 +538,11 @@ export type Navbar = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  label: string;
+  label?: string;
   columns?: Array<
     | {
         title?: string;
-        links: Array<{
+        links?: Array<{
           icon?: IconPicker;
           name?: string;
           description?: string;
@@ -458,7 +573,7 @@ export type Footer = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  label: string;
+  label?: string;
   subtitle?: string;
   columns?: Array<{
     title?: string;
@@ -479,9 +594,9 @@ export type Settings = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  label: string;
-  siteTitle: string;
-  siteDescription: string;
+  label?: string;
+  siteTitle?: string;
+  siteDescription?: string;
   logo?: {
     asset?: {
       _ref: string;
@@ -511,7 +626,7 @@ export type BlogIndex = {
   _rev: string;
   title?: string;
   description?: string;
-  slug: Slug;
+  slug?: Slug;
   displayFeaturedBlogs?: "yes" | "no";
   featuredBlogsCount?: "1" | "2" | "3";
   pageBuilder?: PageBuilder;
@@ -540,7 +655,7 @@ export type HomePage = {
   _rev: string;
   title?: string;
   description?: string;
-  slug: Slug;
+  slug?: Slug;
   pageBuilder?: PageBuilder;
   seoTitle?: string;
   seoDescription?: string;
@@ -565,8 +680,8 @@ export type Disclaimer = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
-  text: RichText;
+  title?: string;
+  text?: RichText;
 };
 
 export type Feature = {
@@ -575,7 +690,7 @@ export type Feature = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
+  title?: string;
   description?: string;
   ancestryDnaRequired?: boolean;
 };
@@ -586,7 +701,7 @@ export type Author = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name: string;
+  name?: string;
   position?: string;
   image?: {
     asset?: {
@@ -609,10 +724,10 @@ export type Blog = {
   _updatedAt: string;
   _rev: string;
   orderRank?: string;
-  title: string;
+  title?: string;
   description?: string;
-  slug: Slug;
-  authors: Array<{
+  slug?: Slug;
+  authors?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -620,7 +735,7 @@ export type Blog = {
     [internalGroqTypeReferenceTo]?: "author";
   }>;
   publishedAt?: string;
-  image: {
+  image?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -632,7 +747,7 @@ export type Blog = {
     _type: "image";
   };
   richText?: RichText;
-  category:
+  category?:
     | "entertainment-culture"
     | "family-history"
     | "history"
@@ -710,7 +825,7 @@ export type Faq = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
+  title?: string;
   richText?: RichText;
 };
 
@@ -720,9 +835,9 @@ export type Page = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
+  title?: string;
   description?: string;
-  slug: Slug;
+  slug?: Slug;
   image?: {
     asset?: {
       _ref: string;
@@ -734,7 +849,7 @@ export type Page = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  category: "trees" | "search" | "memories" | "dna" | "explore";
+  category?: "trees" | "search" | "memories" | "dna" | "explore";
   pageBuilder?: PageBuilder;
   seoTitle?: string;
   seoDescription?: string;
@@ -769,16 +884,10 @@ export type MediaTag = {
   name?: Slug;
 };
 
-export type Slug = {
-  _type: "slug";
-  current: string;
-  source?: string;
-};
-
 export type ExperimentFaq = {
   _type: "experimentFaq";
   default?: {
-    title: string;
+    title?: string;
     richText?: RichText;
     _type: "faq";
   };
@@ -794,8 +903,8 @@ export type ExperimentFaq = {
 export type ExperimentProduct = {
   _type: "experimentProduct";
   default?: {
-    title: string;
-    image: {
+    title?: string;
+    image?: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -807,8 +916,8 @@ export type ExperimentProduct = {
       alt?: string;
       _type: "image";
     };
-    description: RichText;
-    price: number;
+    description?: RichText;
+    price?: number;
     features?: Array<{
       _ref: string;
       _type: "reference";
@@ -902,7 +1011,7 @@ export type VariantFaq = {
   variantId?: string;
   experimentId?: string;
   value?: {
-    title: string;
+    title?: string;
     richText?: RichText;
     _type: "faq";
   };
@@ -913,8 +1022,8 @@ export type VariantProduct = {
   variantId?: string;
   experimentId?: string;
   value?: {
-    title: string;
-    image: {
+    title?: string;
+    image?: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -926,8 +1035,8 @@ export type VariantProduct = {
       alt?: string;
       _type: "image";
     };
-    description: RichText;
-    price: number;
+    description?: RichText;
+    price?: number;
     features?: Array<{
       _ref: string;
       _type: "reference";
@@ -952,8 +1061,8 @@ export type Product = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
-  image: {
+  title?: string;
+  image?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -965,8 +1074,8 @@ export type Product = {
     alt?: string;
     _type: "image";
   };
-  description: RichText;
-  price: number;
+  description?: RichText;
+  price?: number;
   features?: Array<{
     _ref: string;
     _type: "reference";
@@ -978,7 +1087,7 @@ export type Product = {
 
 export type ProductOverview = {
   _type: "productOverview";
-  products: Array<{
+  products?: Array<{
     product?: {
       _ref: string;
       _type: "reference";
@@ -994,7 +1103,7 @@ export type ProductOverview = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "product";
   }>;
-  callToAction: string;
+  callToAction?: string;
   disclaimers?: Array<{
     _ref: string;
     _type: "reference";
@@ -1106,9 +1215,43 @@ export type VariantTitle = {
   value?: Title;
 };
 
+export type FragmentCollection = {
+  _id: string;
+  _type: "fragmentCollection";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  key?: Slug;
+  description?: string;
+  category?: "claims-legal" | "company" | "marketing" | "product" | "other";
+  fragments?: Array<{
+    label?: string;
+    key?: Slug;
+    value?: string;
+    dataType?:
+      | "single-line"
+      | "number"
+      | "number-with-text"
+      | "percentage"
+      | "currency";
+    description?: string;
+    isActive?: boolean;
+    _type: "fragment";
+    _key: string;
+  }>;
+  isActive?: boolean;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
 export type CustomUrl = {
   _type: "customUrl";
-  type: "internal" | "external";
+  type?: "internal" | "external";
   openInNewTab?: boolean;
   external?: string;
   href?: string;
@@ -1144,11 +1287,24 @@ export type Title = {
     }>;
     style?: "normal" | "h2" | "h3" | "h4" | "h5" | "h6" | "inline";
     listItem?: "number" | "bullet";
-    markDefs?: Array<{
-      customLink?: CustomUrl;
-      _type: "customLink";
-      _key: string;
-    }>;
+    markDefs?: Array<
+      | {
+          customLink?: CustomUrl;
+          _type: "customLink";
+          _key: string;
+        }
+      | {
+          collection?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "fragmentCollection";
+          };
+          fragment?: string;
+          _type: "fragmentValue";
+          _key: string;
+        }
+    >;
     level?: number;
     _type: "block";
     _key: string;
@@ -1209,7 +1365,7 @@ export type SanityAssistOutputField = {
 
 export type SanityAssistInstructionContext = {
   _type: "sanity.assist.instruction.context";
-  reference: {
+  reference?: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -1242,7 +1398,7 @@ export type AssistInstructionContext = {
 
 export type SanityAssistInstructionUserInput = {
   _type: "sanity.assist.instruction.userInput";
-  message: string;
+  message?: string;
   description?: string;
 };
 
@@ -1316,6 +1472,7 @@ export type AllSanitySchemaTypes =
   | FeatureCardsIcon
   | Cta
   | Hero
+  | FragmentValue
   | PageBuilder
   | RichText
   | Navbar
@@ -1333,7 +1490,6 @@ export type AllSanitySchemaTypes =
   | Page
   | InternationalizedArrayReference
   | MediaTag
-  | Slug
   | ExperimentFaq
   | ExperimentProduct
   | ExperimentProductOverview
@@ -1356,6 +1512,8 @@ export type AllSanitySchemaTypes =
   | SanityAssetSourceData
   | SanityImageMetadata
   | VariantTitle
+  | FragmentCollection
+  | Slug
   | CustomUrl
   | Title
   | IconPicker
@@ -1412,7 +1570,7 @@ export type QueryHomePageDataResult = {
   _rev: string;
   title: string | null;
   description: string | null;
-  slug: string;
+  slug: string | null;
   pageBuilder: Array<
     | {
         _key: string;
@@ -1440,6 +1598,17 @@ export type QueryHomePageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -1475,10 +1644,10 @@ export type QueryHomePageDataResult = {
         _key: string;
         _type: "faqAccordion";
         eyebrow?: string;
-        title: string;
+        title?: string;
         subtitle?: string;
         faqs: Array<{
-          title: string;
+          title: string | null;
           _id: string;
           _type: "faq";
           richText: Array<
@@ -1504,6 +1673,17 @@ export type QueryHomePageDataResult = {
                       _type: "customLink";
                       _key: string;
                     }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
                 > | null;
                 level?: number;
                 _type: "block";
@@ -1524,7 +1704,7 @@ export type QueryHomePageDataResult = {
                 markDefs: null;
               }
           > | null;
-        }>;
+        }> | null;
         link: {
           title?: string;
           description?: string;
@@ -1547,11 +1727,24 @@ export type QueryHomePageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            customLink?: CustomUrl;
-            _type: "customLink";
-            _key: string;
-          }>;
+          markDefs?: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
+          >;
           level?: number;
           _type: "block";
           _key: string;
@@ -1567,11 +1760,24 @@ export type QueryHomePageDataResult = {
             }>;
             style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
             listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              customLink?: CustomUrl;
-              _type: "customLink";
-              _key: string;
-            }>;
+            markDefs?: Array<
+              | {
+                  customLink?: CustomUrl;
+                  _type: "customLink";
+                  _key: string;
+                }
+              | {
+                  collection?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                  };
+                  fragment?: string;
+                  _type: "fragmentValue";
+                  _key: string;
+                }
+            >;
             level?: number;
             _type: "block";
             _key: string;
@@ -1593,15 +1799,15 @@ export type QueryHomePageDataResult = {
         }>;
         disclaimers: Array<{
           _id: string;
-          title: string;
-          text: RichText;
+          title: string | null;
+          text: RichText | null;
         }> | null;
       }
     | {
         _key: string;
         _type: "hero";
         badge?: string;
-        title: string;
+        title?: string;
         richText: Array<
           | {
               children?: Array<{
@@ -1623,6 +1829,17 @@ export type QueryHomePageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -1686,7 +1903,7 @@ export type QueryHomePageDataResult = {
         _key: string;
         _type: "imageLinkCards";
         eyebrow?: string;
-        title: string;
+        title?: string;
         richText: Array<
           | {
               children?: Array<{
@@ -1708,6 +1925,17 @@ export type QueryHomePageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -1739,8 +1967,8 @@ export type QueryHomePageDataResult = {
           href: string | null;
         }> | null;
         cards: Array<{
-          title: string;
-          description: string;
+          title?: string;
+          description?: string;
           image:
             | {
                 asset?: {
@@ -1781,7 +2009,7 @@ export type QueryHomePageDataResult = {
         products: Array<{
           product: {
             _id: string;
-            title: string;
+            title: string | null;
             image: {
               asset?: {
                 _ref: string;
@@ -1793,19 +2021,19 @@ export type QueryHomePageDataResult = {
               crop?: SanityImageCrop;
               alt?: string;
               _type: "image";
-            };
-            price: number;
-            description: RichText;
+            } | null;
+            price: number | null;
+            description: RichText | null;
             features: Array<{
               _id: string;
-              title: string;
+              title: string | null;
               ancestryDnaRequired: boolean | null;
             }> | null;
           } | null;
-        }>;
+        }> | null;
         loggedInProducts: Array<{
           _id: string;
-          title: string;
+          title: string | null;
           image: {
             asset?: {
               _ref: string;
@@ -1817,20 +2045,20 @@ export type QueryHomePageDataResult = {
             crop?: SanityImageCrop;
             alt?: string;
             _type: "image";
-          };
-          price: number;
-          description: RichText;
+          } | null;
+          price: number | null;
+          description: RichText | null;
           features: Array<{
             _id: string;
-            title: string;
+            title: string | null;
             ancestryDnaRequired: boolean | null;
           }> | null;
         }> | null;
-        callToAction: string;
+        callToAction?: string;
         disclaimers: Array<{
           _id: string;
-          title: string;
-          text: RichText;
+          title: string | null;
+          text: RichText | null;
         }> | null;
       }
     | {
@@ -1857,6 +2085,17 @@ export type QueryHomePageDataResult = {
             | {
                 customLink?: CustomUrl;
                 _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
                 _key: string;
               }
           > | null;
@@ -1886,6 +2125,17 @@ export type QueryHomePageDataResult = {
                 _type: "customLink";
                 _key: string;
               }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
           > | null;
           level?: number;
           _type: "block";
@@ -1904,11 +2154,24 @@ export type QueryHomePageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            customLink?: CustomUrl;
-            _type: "customLink";
-            _key: string;
-          }>;
+          markDefs?: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
+          >;
           level?: number;
           _type: "block";
           _key: string;
@@ -1946,9 +2209,9 @@ export type QuerySlugPageDataResult = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
+  title?: string;
   description?: string;
-  slug: string;
+  slug: string | null;
   image?: {
     asset?: {
       _ref: string;
@@ -1960,7 +2223,7 @@ export type QuerySlugPageDataResult = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  category: "dna" | "explore" | "memories" | "search" | "trees";
+  category?: "dna" | "explore" | "memories" | "search" | "trees";
   pageBuilder: Array<
     | {
         _key: string;
@@ -1988,6 +2251,17 @@ export type QuerySlugPageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -2023,10 +2297,10 @@ export type QuerySlugPageDataResult = {
         _key: string;
         _type: "faqAccordion";
         eyebrow?: string;
-        title: string;
+        title?: string;
         subtitle?: string;
         faqs: Array<{
-          title: string;
+          title: string | null;
           _id: string;
           _type: "faq";
           richText: Array<
@@ -2052,6 +2326,17 @@ export type QuerySlugPageDataResult = {
                       _type: "customLink";
                       _key: string;
                     }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
                 > | null;
                 level?: number;
                 _type: "block";
@@ -2072,7 +2357,7 @@ export type QuerySlugPageDataResult = {
                 markDefs: null;
               }
           > | null;
-        }>;
+        }> | null;
         link: {
           title?: string;
           description?: string;
@@ -2095,11 +2380,24 @@ export type QuerySlugPageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            customLink?: CustomUrl;
-            _type: "customLink";
-            _key: string;
-          }>;
+          markDefs?: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
+          >;
           level?: number;
           _type: "block";
           _key: string;
@@ -2115,11 +2413,24 @@ export type QuerySlugPageDataResult = {
             }>;
             style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
             listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              customLink?: CustomUrl;
-              _type: "customLink";
-              _key: string;
-            }>;
+            markDefs?: Array<
+              | {
+                  customLink?: CustomUrl;
+                  _type: "customLink";
+                  _key: string;
+                }
+              | {
+                  collection?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                  };
+                  fragment?: string;
+                  _type: "fragmentValue";
+                  _key: string;
+                }
+            >;
             level?: number;
             _type: "block";
             _key: string;
@@ -2141,15 +2452,15 @@ export type QuerySlugPageDataResult = {
         }>;
         disclaimers: Array<{
           _id: string;
-          title: string;
-          text: RichText;
+          title: string | null;
+          text: RichText | null;
         }> | null;
       }
     | {
         _key: string;
         _type: "hero";
         badge?: string;
-        title: string;
+        title?: string;
         richText: Array<
           | {
               children?: Array<{
@@ -2171,6 +2482,17 @@ export type QuerySlugPageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -2234,7 +2556,7 @@ export type QuerySlugPageDataResult = {
         _key: string;
         _type: "imageLinkCards";
         eyebrow?: string;
-        title: string;
+        title?: string;
         richText: Array<
           | {
               children?: Array<{
@@ -2256,6 +2578,17 @@ export type QuerySlugPageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -2287,8 +2620,8 @@ export type QuerySlugPageDataResult = {
           href: string | null;
         }> | null;
         cards: Array<{
-          title: string;
-          description: string;
+          title?: string;
+          description?: string;
           image:
             | {
                 asset?: {
@@ -2329,7 +2662,7 @@ export type QuerySlugPageDataResult = {
         products: Array<{
           product: {
             _id: string;
-            title: string;
+            title: string | null;
             image: {
               asset?: {
                 _ref: string;
@@ -2341,19 +2674,19 @@ export type QuerySlugPageDataResult = {
               crop?: SanityImageCrop;
               alt?: string;
               _type: "image";
-            };
-            price: number;
-            description: RichText;
+            } | null;
+            price: number | null;
+            description: RichText | null;
             features: Array<{
               _id: string;
-              title: string;
+              title: string | null;
               ancestryDnaRequired: boolean | null;
             }> | null;
           } | null;
-        }>;
+        }> | null;
         loggedInProducts: Array<{
           _id: string;
-          title: string;
+          title: string | null;
           image: {
             asset?: {
               _ref: string;
@@ -2365,20 +2698,20 @@ export type QuerySlugPageDataResult = {
             crop?: SanityImageCrop;
             alt?: string;
             _type: "image";
-          };
-          price: number;
-          description: RichText;
+          } | null;
+          price: number | null;
+          description: RichText | null;
           features: Array<{
             _id: string;
-            title: string;
+            title: string | null;
             ancestryDnaRequired: boolean | null;
           }> | null;
         }> | null;
-        callToAction: string;
+        callToAction?: string;
         disclaimers: Array<{
           _id: string;
-          title: string;
-          text: RichText;
+          title: string | null;
+          text: RichText | null;
         }> | null;
       }
     | {
@@ -2405,6 +2738,17 @@ export type QuerySlugPageDataResult = {
             | {
                 customLink?: CustomUrl;
                 _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
                 _key: string;
               }
           > | null;
@@ -2434,6 +2778,17 @@ export type QuerySlugPageDataResult = {
                 _type: "customLink";
                 _key: string;
               }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
           > | null;
           level?: number;
           _type: "block";
@@ -2452,11 +2807,24 @@ export type QuerySlugPageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            customLink?: CustomUrl;
-            _type: "customLink";
-            _key: string;
-          }>;
+          markDefs?: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
+          >;
           level?: number;
           _type: "block";
           _key: string;
@@ -2489,7 +2857,7 @@ export type QuerySlugPageDataResult = {
 } | null;
 // Variable: querySlugPagePaths
 // Query: *[_type == "page" && defined(slug.current)].slug.current
-export type QuerySlugPagePathsResult = Array<string>;
+export type QuerySlugPagePathsResult = Array<string | null>;
 // Variable: queryBlogIndexPageData
 // Query: *[_type == "blogIndex"][0]{    ...,    _id,    _type,    title,    description,    "displayFeaturedBlogs" : displayFeaturedBlogs == "yes",    "featuredBlogsCount" : featuredBlogsCount,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    disclaimers[]->{      _id,      title,      text    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text    }  },      _type == "title" => {    ...  }  },    "slug": slug.current,    "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    },    "featuredBlogs": *[_type == "blog" && (seoHideFromLists != true) && isFeatured == true] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    }  }
 export type QueryBlogIndexPageDataResult = {
@@ -2500,7 +2868,7 @@ export type QueryBlogIndexPageDataResult = {
   _rev: string;
   title: string | null;
   description: string | null;
-  slug: string;
+  slug: string | null;
   displayFeaturedBlogs: false | true;
   featuredBlogsCount: "1" | "2" | "3" | null;
   pageBuilder: Array<
@@ -2530,6 +2898,17 @@ export type QueryBlogIndexPageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -2565,10 +2944,10 @@ export type QueryBlogIndexPageDataResult = {
         _key: string;
         _type: "faqAccordion";
         eyebrow?: string;
-        title: string;
+        title?: string;
         subtitle?: string;
         faqs: Array<{
-          title: string;
+          title: string | null;
           _id: string;
           _type: "faq";
           richText: Array<
@@ -2594,6 +2973,17 @@ export type QueryBlogIndexPageDataResult = {
                       _type: "customLink";
                       _key: string;
                     }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
                 > | null;
                 level?: number;
                 _type: "block";
@@ -2614,7 +3004,7 @@ export type QueryBlogIndexPageDataResult = {
                 markDefs: null;
               }
           > | null;
-        }>;
+        }> | null;
         link: {
           title?: string;
           description?: string;
@@ -2637,11 +3027,24 @@ export type QueryBlogIndexPageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            customLink?: CustomUrl;
-            _type: "customLink";
-            _key: string;
-          }>;
+          markDefs?: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
+          >;
           level?: number;
           _type: "block";
           _key: string;
@@ -2657,11 +3060,24 @@ export type QueryBlogIndexPageDataResult = {
             }>;
             style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
             listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              customLink?: CustomUrl;
-              _type: "customLink";
-              _key: string;
-            }>;
+            markDefs?: Array<
+              | {
+                  customLink?: CustomUrl;
+                  _type: "customLink";
+                  _key: string;
+                }
+              | {
+                  collection?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                  };
+                  fragment?: string;
+                  _type: "fragmentValue";
+                  _key: string;
+                }
+            >;
             level?: number;
             _type: "block";
             _key: string;
@@ -2683,15 +3099,15 @@ export type QueryBlogIndexPageDataResult = {
         }>;
         disclaimers: Array<{
           _id: string;
-          title: string;
-          text: RichText;
+          title: string | null;
+          text: RichText | null;
         }> | null;
       }
     | {
         _key: string;
         _type: "hero";
         badge?: string;
-        title: string;
+        title?: string;
         richText: Array<
           | {
               children?: Array<{
@@ -2713,6 +3129,17 @@ export type QueryBlogIndexPageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -2776,7 +3203,7 @@ export type QueryBlogIndexPageDataResult = {
         _key: string;
         _type: "imageLinkCards";
         eyebrow?: string;
-        title: string;
+        title?: string;
         richText: Array<
           | {
               children?: Array<{
@@ -2798,6 +3225,17 @@ export type QueryBlogIndexPageDataResult = {
                 | {
                     customLink?: CustomUrl;
                     _type: "customLink";
+                    _key: string;
+                  }
+                | {
+                    collection?: {
+                      _ref: string;
+                      _type: "reference";
+                      _weak?: boolean;
+                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    };
+                    fragment?: string;
+                    _type: "fragmentValue";
                     _key: string;
                   }
               > | null;
@@ -2829,8 +3267,8 @@ export type QueryBlogIndexPageDataResult = {
           href: string | null;
         }> | null;
         cards: Array<{
-          title: string;
-          description: string;
+          title?: string;
+          description?: string;
           image:
             | {
                 asset?: {
@@ -2871,7 +3309,7 @@ export type QueryBlogIndexPageDataResult = {
         products: Array<{
           product: {
             _id: string;
-            title: string;
+            title: string | null;
             image: {
               asset?: {
                 _ref: string;
@@ -2883,19 +3321,19 @@ export type QueryBlogIndexPageDataResult = {
               crop?: SanityImageCrop;
               alt?: string;
               _type: "image";
-            };
-            price: number;
-            description: RichText;
+            } | null;
+            price: number | null;
+            description: RichText | null;
             features: Array<{
               _id: string;
-              title: string;
+              title: string | null;
               ancestryDnaRequired: boolean | null;
             }> | null;
           } | null;
-        }>;
+        }> | null;
         loggedInProducts: Array<{
           _id: string;
-          title: string;
+          title: string | null;
           image: {
             asset?: {
               _ref: string;
@@ -2907,20 +3345,20 @@ export type QueryBlogIndexPageDataResult = {
             crop?: SanityImageCrop;
             alt?: string;
             _type: "image";
-          };
-          price: number;
-          description: RichText;
+          } | null;
+          price: number | null;
+          description: RichText | null;
           features: Array<{
             _id: string;
-            title: string;
+            title: string | null;
             ancestryDnaRequired: boolean | null;
           }> | null;
         }> | null;
-        callToAction: string;
+        callToAction?: string;
         disclaimers: Array<{
           _id: string;
-          title: string;
-          text: RichText;
+          title: string | null;
+          text: RichText | null;
         }> | null;
       }
     | {
@@ -2947,6 +3385,17 @@ export type QueryBlogIndexPageDataResult = {
             | {
                 customLink?: CustomUrl;
                 _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
                 _key: string;
               }
           > | null;
@@ -2976,6 +3425,17 @@ export type QueryBlogIndexPageDataResult = {
                 _type: "customLink";
                 _key: string;
               }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
           > | null;
           level?: number;
           _type: "block";
@@ -2994,11 +3454,24 @@ export type QueryBlogIndexPageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            customLink?: CustomUrl;
-            _type: "customLink";
-            _key: string;
-          }>;
+          markDefs?: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+              }
+            | {
+                collection?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                };
+                fragment?: string;
+                _type: "fragmentValue";
+                _key: string;
+              }
+          >;
           level?: number;
           _type: "block";
           _key: string;
@@ -3030,9 +3503,9 @@ export type QueryBlogIndexPageDataResult = {
   blogs: Array<{
     _type: "blog";
     _id: string;
-    title: string;
+    title: string | null;
     description: string | null;
-    slug: string;
+    slug: string | null;
     richText: RichText | null;
     orderRank: string | null;
     category:
@@ -3043,7 +3516,8 @@ export type QueryBlogIndexPageDataResult = {
       | "family-history"
       | "history"
       | "holidays"
-      | "names";
+      | "names"
+      | null;
     image:
       | {
           asset?: {
@@ -3069,11 +3543,12 @@ export type QueryBlogIndexPageDataResult = {
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
           _type: "image";
-        };
+        }
+      | null;
     publishedAt: string | null;
     authors: {
       _id: string;
-      name: string;
+      name: string | null;
       position: string | null;
       image:
         | {
@@ -3107,9 +3582,9 @@ export type QueryBlogIndexPageDataResult = {
   featuredBlogs: Array<{
     _type: "blog";
     _id: string;
-    title: string;
+    title: string | null;
     description: string | null;
-    slug: string;
+    slug: string | null;
     richText: RichText | null;
     orderRank: string | null;
     category:
@@ -3120,7 +3595,8 @@ export type QueryBlogIndexPageDataResult = {
       | "family-history"
       | "history"
       | "holidays"
-      | "names";
+      | "names"
+      | null;
     image:
       | {
           asset?: {
@@ -3146,11 +3622,12 @@ export type QueryBlogIndexPageDataResult = {
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
           _type: "image";
-        };
+        }
+      | null;
     publishedAt: string | null;
     authors: {
       _id: string;
-      name: string;
+      name: string | null;
       position: string | null;
       image:
         | {
@@ -3191,12 +3668,12 @@ export type QueryBlogSlugPageDataResult = {
   _updatedAt: string;
   _rev: string;
   orderRank?: string;
-  title: string;
+  title?: string;
   description?: string;
-  slug: string;
+  slug: string | null;
   authors: {
     _id: string;
-    name: string;
+    name: string | null;
     position: string | null;
     image:
       | {
@@ -3252,7 +3729,8 @@ export type QueryBlogSlugPageDataResult = {
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
-      };
+      }
+    | null;
   richText: Array<
     | {
         children?: Array<{
@@ -3276,6 +3754,17 @@ export type QueryBlogSlugPageDataResult = {
               _type: "customLink";
               _key: string;
             }
+          | {
+              collection?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "fragmentCollection";
+              };
+              fragment?: string;
+              _type: "fragmentValue";
+              _key: string;
+            }
         > | null;
         level?: number;
         _type: "block";
@@ -3296,7 +3785,7 @@ export type QueryBlogSlugPageDataResult = {
         markDefs: null;
       }
   > | null;
-  category:
+  category?:
     | "ancestry-news"
     | "customer-stories"
     | "dna"
@@ -3327,7 +3816,7 @@ export type QueryBlogSlugPageDataResult = {
 } | null;
 // Variable: queryBlogPaths
 // Query: *[_type == "blog" && defined(slug.current)].slug.current
-export type QueryBlogPathsResult = Array<string>;
+export type QueryBlogPathsResult = Array<string | null>;
 // Variable: queryHomePageOGData
 // Query: *[_type == "homePage" && _id == $id][0]{      _id,  _type,  "title": select(    defined(ogTitle) => ogTitle,    defined(seoTitle) => seoTitle,    title  ),  "description": select(    defined(ogDescription) => ogDescription,    defined(seoDescription) => seoDescription,    description  ),  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  "dominantColor": image.asset->metadata.palette.dominant.background,  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max",   "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",  "date": coalesce(date, _createdAt)  }
 export type QueryHomePageOGDataResult = {
@@ -3455,7 +3944,7 @@ export type QueryNavbarDataResult = {
           description: string | null;
           openInNewTab: boolean | null;
           href: string | null;
-        }>;
+        }> | null;
       }
   > | null;
   buttons: Array<{
@@ -3471,11 +3960,11 @@ export type QueryNavbarDataResult = {
 // Query: {  "slugPages": *[_type == "page" && defined(slug.current)]{    "slug": slug.current,    "lastModified": _updatedAt  },  "blogPages": *[_type == "blog" && defined(slug.current)]{    "slug": slug.current,    "lastModified": _updatedAt  }}
 export type QuerySitemapDataResult = {
   slugPages: Array<{
-    slug: string;
+    slug: string | null;
     lastModified: string;
   }>;
   blogPages: Array<{
-    slug: string;
+    slug: string | null;
     lastModified: string;
   }>;
 };
@@ -3484,7 +3973,7 @@ export type QuerySitemapDataResult = {
 export type QueryGlobalSeoSettingsResult = {
   _id: string;
   _type: "settings";
-  siteTitle: string;
+  siteTitle: string | null;
   logo:
     | {
         asset?: {
@@ -3512,7 +4001,7 @@ export type QueryGlobalSeoSettingsResult = {
         _type: "image";
       }
     | null;
-  siteDescription: string;
+  siteDescription: string | null;
   socialLinks: {
     linkedin: string | null;
     facebook: string | null;
@@ -3526,8 +4015,8 @@ export type QueryGlobalSeoSettingsResult = {
 export type QuerySettingsDataResult = {
   _id: string;
   _type: "settings";
-  siteTitle: string;
-  siteDescription: string;
+  siteTitle: string | null;
+  siteDescription: string | null;
   logo: string | null;
   socialLinks: {
     linkedin?: string;

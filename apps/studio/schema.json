@@ -458,35 +458,100 @@
                   "value": {
                     "type": "array",
                     "of": {
-                      "type": "object",
-                      "attributes": {
-                        "customLink": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "inline",
-                            "name": "customUrl"
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "customLink": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "inline",
+                                "name": "customUrl"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "customLink"
+                              }
+                            }
                           },
-                          "optional": true
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "customLink"
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
-                        }
-                      },
-                      "rest": {
-                        "type": "object",
-                        "attributes": {
-                          "_key": {
-                            "type": "objectAttribute",
-                            "value": {
-                              "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "collection": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "object",
+                                "attributes": {
+                                  "_ref": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "_type": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string",
+                                      "value": "reference"
+                                    }
+                                  },
+                                  "_weak": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "boolean"
+                                    },
+                                    "optional": true
+                                  }
+                                },
+                                "dereferencesTo": "fragmentCollection"
+                              },
+                              "optional": true
+                            },
+                            "fragment": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "fragmentValue"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         }
-                      }
+                      ]
                     }
                   },
                   "optional": true
@@ -634,35 +699,100 @@
                   "value": {
                     "type": "array",
                     "of": {
-                      "type": "object",
-                      "attributes": {
-                        "customLink": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "inline",
-                            "name": "customUrl"
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "customLink": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "inline",
+                                "name": "customUrl"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "customLink"
+                              }
+                            }
                           },
-                          "optional": true
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "customLink"
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
-                        }
-                      },
-                      "rest": {
-                        "type": "object",
-                        "attributes": {
-                          "_key": {
-                            "type": "objectAttribute",
-                            "value": {
-                              "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "collection": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "object",
+                                "attributes": {
+                                  "_ref": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "_type": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string",
+                                      "value": "reference"
+                                    }
+                                  },
+                                  "_weak": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "boolean"
+                                    },
+                                    "optional": true
+                                  }
+                                },
+                                "dereferencesTo": "fragmentCollection"
+                              },
+                              "optional": true
+                            },
+                            "fragment": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "fragmentValue"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         }
-                      }
+                      ]
                     }
                   },
                   "optional": true
@@ -725,7 +855,7 @@
           "value": {
             "type": "string"
           },
-          "optional": false
+          "optional": true
         },
         "richText": {
           "type": "objectAttribute",
@@ -843,35 +973,100 @@
                       "value": {
                         "type": "array",
                         "of": {
-                          "type": "object",
-                          "attributes": {
-                            "customLink": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "inline",
-                                "name": "customUrl"
+                          "type": "union",
+                          "of": [
+                            {
+                              "type": "object",
+                              "attributes": {
+                                "customLink": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "inline",
+                                    "name": "customUrl"
+                                  },
+                                  "optional": true
+                                },
+                                "_type": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string",
+                                    "value": "customLink"
+                                  }
+                                }
                               },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "customLink"
+                              "rest": {
+                                "type": "object",
+                                "attributes": {
+                                  "_key": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
                               }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "attributes": {
+                                "collection": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "object",
+                                    "attributes": {
+                                      "_ref": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "_type": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string",
+                                          "value": "reference"
+                                        }
+                                      },
+                                      "_weak": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "boolean"
+                                        },
+                                        "optional": true
+                                      }
+                                    },
+                                    "dereferencesTo": "fragmentCollection"
+                                  },
+                                  "optional": true
+                                },
+                                "fragment": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string"
+                                  },
+                                  "optional": true
+                                },
+                                "_type": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string",
+                                    "value": "fragmentValue"
+                                  }
+                                }
+                              },
+                              "rest": {
+                                "type": "object",
+                                "attributes": {
+                                  "_key": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  }
                                 }
                               }
                             }
-                          }
+                          ]
                         }
                       },
                       "optional": true
@@ -1018,14 +1213,14 @@
                   "value": {
                     "type": "string"
                   },
-                  "optional": false
+                  "optional": true
                 },
                 "description": {
                   "type": "objectAttribute",
                   "value": {
                     "type": "string"
                   },
-                  "optional": false
+                  "optional": true
                 },
                 "image": {
                   "type": "objectAttribute",
@@ -1148,7 +1343,7 @@
           "value": {
             "type": "string"
           },
-          "optional": false
+          "optional": true
         },
         "subtitle": {
           "type": "objectAttribute",
@@ -1199,7 +1394,7 @@
               }
             }
           },
-          "optional": false
+          "optional": true
         },
         "link": {
           "type": "objectAttribute",
@@ -1375,35 +1570,100 @@
                   "value": {
                     "type": "array",
                     "of": {
-                      "type": "object",
-                      "attributes": {
-                        "customLink": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "inline",
-                            "name": "customUrl"
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "customLink": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "inline",
+                                "name": "customUrl"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "customLink"
+                              }
+                            }
                           },
-                          "optional": true
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "customLink"
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
-                        }
-                      },
-                      "rest": {
-                        "type": "object",
-                        "attributes": {
-                          "_key": {
-                            "type": "objectAttribute",
-                            "value": {
-                              "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "collection": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "object",
+                                "attributes": {
+                                  "_ref": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "_type": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string",
+                                      "value": "reference"
+                                    }
+                                  },
+                                  "_weak": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "boolean"
+                                    },
+                                    "optional": true
+                                  }
+                                },
+                                "dereferencesTo": "fragmentCollection"
+                              },
+                              "optional": true
+                            },
+                            "fragment": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "fragmentValue"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         }
-                      }
+                      ]
                     }
                   },
                   "optional": true
@@ -1565,35 +1825,100 @@
                           "value": {
                             "type": "array",
                             "of": {
-                              "type": "object",
-                              "attributes": {
-                                "customLink": {
-                                  "type": "objectAttribute",
-                                  "value": {
-                                    "type": "inline",
-                                    "name": "customUrl"
+                              "type": "union",
+                              "of": [
+                                {
+                                  "type": "object",
+                                  "attributes": {
+                                    "customLink": {
+                                      "type": "objectAttribute",
+                                      "value": {
+                                        "type": "inline",
+                                        "name": "customUrl"
+                                      },
+                                      "optional": true
+                                    },
+                                    "_type": {
+                                      "type": "objectAttribute",
+                                      "value": {
+                                        "type": "string",
+                                        "value": "customLink"
+                                      }
+                                    }
                                   },
-                                  "optional": true
-                                },
-                                "_type": {
-                                  "type": "objectAttribute",
-                                  "value": {
-                                    "type": "string",
-                                    "value": "customLink"
+                                  "rest": {
+                                    "type": "object",
+                                    "attributes": {
+                                      "_key": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
                                   }
-                                }
-                              },
-                              "rest": {
-                                "type": "object",
-                                "attributes": {
-                                  "_key": {
-                                    "type": "objectAttribute",
-                                    "value": {
-                                      "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "attributes": {
+                                    "collection": {
+                                      "type": "objectAttribute",
+                                      "value": {
+                                        "type": "object",
+                                        "attributes": {
+                                          "_ref": {
+                                            "type": "objectAttribute",
+                                            "value": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "_type": {
+                                            "type": "objectAttribute",
+                                            "value": {
+                                              "type": "string",
+                                              "value": "reference"
+                                            }
+                                          },
+                                          "_weak": {
+                                            "type": "objectAttribute",
+                                            "value": {
+                                              "type": "boolean"
+                                            },
+                                            "optional": true
+                                          }
+                                        },
+                                        "dereferencesTo": "fragmentCollection"
+                                      },
+                                      "optional": true
+                                    },
+                                    "fragment": {
+                                      "type": "objectAttribute",
+                                      "value": {
+                                        "type": "string"
+                                      },
+                                      "optional": true
+                                    },
+                                    "_type": {
+                                      "type": "objectAttribute",
+                                      "value": {
+                                        "type": "string",
+                                        "value": "fragmentValue"
+                                      }
+                                    }
+                                  },
+                                  "rest": {
+                                    "type": "object",
+                                    "attributes": {
+                                      "_key": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        }
+                                      }
                                     }
                                   }
                                 }
-                              }
+                              ]
                             }
                           },
                           "optional": true
@@ -1910,35 +2235,100 @@
                       "value": {
                         "type": "array",
                         "of": {
-                          "type": "object",
-                          "attributes": {
-                            "customLink": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "inline",
-                                "name": "customUrl"
+                          "type": "union",
+                          "of": [
+                            {
+                              "type": "object",
+                              "attributes": {
+                                "customLink": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "inline",
+                                    "name": "customUrl"
+                                  },
+                                  "optional": true
+                                },
+                                "_type": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string",
+                                    "value": "customLink"
+                                  }
+                                }
                               },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "customLink"
+                              "rest": {
+                                "type": "object",
+                                "attributes": {
+                                  "_key": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
                               }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "attributes": {
+                                "collection": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "object",
+                                    "attributes": {
+                                      "_ref": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "_type": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string",
+                                          "value": "reference"
+                                        }
+                                      },
+                                      "_weak": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "boolean"
+                                        },
+                                        "optional": true
+                                      }
+                                    },
+                                    "dereferencesTo": "fragmentCollection"
+                                  },
+                                  "optional": true
+                                },
+                                "fragment": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string"
+                                  },
+                                  "optional": true
+                                },
+                                "_type": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string",
+                                    "value": "fragmentValue"
+                                  }
+                                }
+                              },
+                              "rest": {
+                                "type": "object",
+                                "attributes": {
+                                  "_key": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  }
                                 }
                               }
                             }
-                          }
+                          ]
                         }
                       },
                       "optional": true
@@ -2101,7 +2491,7 @@
           "value": {
             "type": "string"
           },
-          "optional": false
+          "optional": true
         },
         "richText": {
           "type": "objectAttribute",
@@ -2219,35 +2609,100 @@
                       "value": {
                         "type": "array",
                         "of": {
-                          "type": "object",
-                          "attributes": {
-                            "customLink": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "inline",
-                                "name": "customUrl"
+                          "type": "union",
+                          "of": [
+                            {
+                              "type": "object",
+                              "attributes": {
+                                "customLink": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "inline",
+                                    "name": "customUrl"
+                                  },
+                                  "optional": true
+                                },
+                                "_type": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string",
+                                    "value": "customLink"
+                                  }
+                                }
                               },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "customLink"
+                              "rest": {
+                                "type": "object",
+                                "attributes": {
+                                  "_key": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
                               }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "attributes": {
+                                "collection": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "object",
+                                    "attributes": {
+                                      "_ref": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "_type": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "string",
+                                          "value": "reference"
+                                        }
+                                      },
+                                      "_weak": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                          "type": "boolean"
+                                        },
+                                        "optional": true
+                                      }
+                                    },
+                                    "dereferencesTo": "fragmentCollection"
+                                  },
+                                  "optional": true
+                                },
+                                "fragment": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string"
+                                  },
+                                  "optional": true
+                                },
+                                "_type": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string",
+                                    "value": "fragmentValue"
+                                  }
+                                }
+                              },
+                              "rest": {
+                                "type": "object",
+                                "attributes": {
+                                  "_key": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  }
                                 }
                               }
                             }
-                          }
+                          ]
                         }
                       },
                       "optional": true
@@ -2448,6 +2903,59 @@
                 "name": "button"
               }
             }
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "fragmentValue",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "fragmentValue"
+          }
+        },
+        "collection": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "_ref": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "reference"
+                }
+              },
+              "_weak": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "boolean"
+                },
+                "optional": true
+              }
+            },
+            "dereferencesTo": "fragmentCollection"
+          },
+          "optional": true
+        },
+        "fragment": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
           },
           "optional": true
         }
@@ -2703,35 +3211,100 @@
                 "value": {
                   "type": "array",
                   "of": {
-                    "type": "object",
-                    "attributes": {
-                      "customLink": {
-                        "type": "objectAttribute",
-                        "value": {
-                          "type": "inline",
-                          "name": "customUrl"
+                    "type": "union",
+                    "of": [
+                      {
+                        "type": "object",
+                        "attributes": {
+                          "customLink": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "inline",
+                              "name": "customUrl"
+                            },
+                            "optional": true
+                          },
+                          "_type": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "string",
+                              "value": "customLink"
+                            }
+                          }
                         },
-                        "optional": true
-                      },
-                      "_type": {
-                        "type": "objectAttribute",
-                        "value": {
-                          "type": "string",
-                          "value": "customLink"
+                        "rest": {
+                          "type": "object",
+                          "attributes": {
+                            "_key": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
-                      }
-                    },
-                    "rest": {
-                      "type": "object",
-                      "attributes": {
-                        "_key": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "attributes": {
+                          "collection": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "object",
+                              "attributes": {
+                                "_ref": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "_type": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "string",
+                                    "value": "reference"
+                                  }
+                                },
+                                "_weak": {
+                                  "type": "objectAttribute",
+                                  "value": {
+                                    "type": "boolean"
+                                  },
+                                  "optional": true
+                                }
+                              },
+                              "dereferencesTo": "fragmentCollection"
+                            },
+                            "optional": true
+                          },
+                          "fragment": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "string"
+                            },
+                            "optional": true
+                          },
+                          "_type": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "string",
+                              "value": "fragmentValue"
+                            }
+                          }
+                        },
+                        "rest": {
+                          "type": "object",
+                          "attributes": {
+                            "_key": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              }
+                            }
                           }
                         }
                       }
-                    }
+                    ]
                   }
                 },
                 "optional": true
@@ -2883,7 +3456,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "columns": {
         "type": "objectAttribute",
@@ -2960,7 +3533,7 @@
                         }
                       }
                     },
-                    "optional": false
+                    "optional": true
                   },
                   "_type": {
                     "type": "objectAttribute",
@@ -3089,7 +3662,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "subtitle": {
         "type": "objectAttribute",
@@ -3222,21 +3795,21 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "siteTitle": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "siteDescription": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "logo": {
         "type": "objectAttribute",
@@ -3408,7 +3981,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": false
+        "optional": true
       },
       "displayFeaturedBlogs": {
         "type": "objectAttribute",
@@ -3603,7 +4176,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": false
+        "optional": true
       },
       "pageBuilder": {
         "type": "objectAttribute",
@@ -3745,7 +4318,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "text": {
         "type": "objectAttribute",
@@ -3753,7 +4326,7 @@
           "type": "inline",
           "name": "richText"
         },
-        "optional": false
+        "optional": true
       }
     }
   },
@@ -3797,7 +4370,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "description": {
         "type": "objectAttribute",
@@ -3855,7 +4428,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "position": {
         "type": "objectAttribute",
@@ -3982,7 +4555,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "description": {
         "type": "objectAttribute",
@@ -3997,7 +4570,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": false
+        "optional": true
       },
       "authors": {
         "type": "objectAttribute",
@@ -4041,7 +4614,7 @@
             }
           }
         },
-        "optional": false
+        "optional": true
       },
       "publishedAt": {
         "type": "objectAttribute",
@@ -4110,7 +4683,7 @@
             }
           }
         },
-        "optional": false
+        "optional": true
       },
       "richText": {
         "type": "objectAttribute",
@@ -4159,7 +4732,7 @@
             }
           ]
         },
-        "optional": false
+        "optional": true
       },
       "isFeatured": {
         "type": "objectAttribute",
@@ -4512,7 +5085,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "richText": {
         "type": "objectAttribute",
@@ -4564,7 +5137,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "description": {
         "type": "objectAttribute",
@@ -4579,7 +5152,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": false
+        "optional": true
       },
       "image": {
         "type": "objectAttribute",
@@ -4670,7 +5243,7 @@
             }
           ]
         },
-        "optional": false
+        "optional": true
       },
       "pageBuilder": {
         "type": "objectAttribute",
@@ -4847,36 +5420,6 @@
     }
   },
   {
-    "name": "slug",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "slug"
-          }
-        },
-        "current": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": false
-        },
-        "source": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
     "name": "experimentFaq",
     "type": "type",
     "value": {
@@ -4899,7 +5442,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": false
+                "optional": true
               },
               "richText": {
                 "type": "objectAttribute",
@@ -4982,7 +5525,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": false
+                "optional": true
               },
               "image": {
                 "type": "objectAttribute",
@@ -5051,7 +5594,7 @@
                     }
                   }
                 },
-                "optional": false
+                "optional": true
               },
               "description": {
                 "type": "objectAttribute",
@@ -5059,14 +5602,14 @@
                   "type": "inline",
                   "name": "richText"
                 },
-                "optional": false
+                "optional": true
               },
               "price": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "number"
                 },
-                "optional": false
+                "optional": true
               },
               "features": {
                 "type": "objectAttribute",
@@ -5553,7 +6096,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": false
+                "optional": true
               },
               "richText": {
                 "type": "objectAttribute",
@@ -5614,7 +6157,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": false
+                "optional": true
               },
               "image": {
                 "type": "objectAttribute",
@@ -5683,7 +6226,7 @@
                     }
                   }
                 },
-                "optional": false
+                "optional": true
               },
               "description": {
                 "type": "objectAttribute",
@@ -5691,14 +6234,14 @@
                   "type": "inline",
                   "name": "richText"
                 },
-                "optional": false
+                "optional": true
               },
               "price": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "number"
                 },
-                "optional": false
+                "optional": true
               },
               "features": {
                 "type": "objectAttribute",
@@ -5836,7 +6379,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "image": {
         "type": "objectAttribute",
@@ -5905,7 +6448,7 @@
             }
           }
         },
-        "optional": false
+        "optional": true
       },
       "description": {
         "type": "objectAttribute",
@@ -5913,14 +6456,14 @@
           "type": "inline",
           "name": "richText"
         },
-        "optional": false
+        "optional": true
       },
       "price": {
         "type": "objectAttribute",
         "value": {
           "type": "number"
         },
-        "optional": false
+        "optional": true
       },
       "features": {
         "type": "objectAttribute",
@@ -6032,7 +6575,7 @@
               }
             }
           },
-          "optional": false
+          "optional": true
         },
         "loggedInProducts": {
           "type": "objectAttribute",
@@ -6083,7 +6626,7 @@
           "value": {
             "type": "string"
           },
-          "optional": false
+          "optional": true
         },
         "disclaimers": {
           "type": "objectAttribute",
@@ -6732,6 +7275,226 @@
     }
   },
   {
+    "name": "fragmentCollection",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "fragmentCollection"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "key": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "category": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "claims-legal"
+            },
+            {
+              "type": "string",
+              "value": "company"
+            },
+            {
+              "type": "string",
+              "value": "marketing"
+            },
+            {
+              "type": "string",
+              "value": "product"
+            },
+            {
+              "type": "string",
+              "value": "other"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "fragments": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "label": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "slug"
+                },
+                "optional": true
+              },
+              "value": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "dataType": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "single-line"
+                    },
+                    {
+                      "type": "string",
+                      "value": "number"
+                    },
+                    {
+                      "type": "string",
+                      "value": "number-with-text"
+                    },
+                    {
+                      "type": "string",
+                      "value": "percentage"
+                    },
+                    {
+                      "type": "string",
+                      "value": "currency"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "description": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "isActive": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "boolean"
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "fragment"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "optional": true
+      },
+      "isActive": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "slug",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "slug"
+          }
+        },
+        "current": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "source": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "customUrl",
     "type": "type",
     "value": {
@@ -6759,7 +7522,7 @@
               }
             ]
           },
-          "optional": false
+          "optional": true
         },
         "openInNewTab": {
           "type": "objectAttribute",
@@ -6998,35 +7761,100 @@
                   "value": {
                     "type": "array",
                     "of": {
-                      "type": "object",
-                      "attributes": {
-                        "customLink": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "inline",
-                            "name": "customUrl"
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "customLink": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "inline",
+                                "name": "customUrl"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "customLink"
+                              }
+                            }
                           },
-                          "optional": true
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "customLink"
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
-                        }
-                      },
-                      "rest": {
-                        "type": "object",
-                        "attributes": {
-                          "_key": {
-                            "type": "objectAttribute",
-                            "value": {
-                              "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "attributes": {
+                            "collection": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "object",
+                                "attributes": {
+                                  "_ref": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "_type": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string",
+                                      "value": "reference"
+                                    }
+                                  },
+                                  "_weak": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "boolean"
+                                    },
+                                    "optional": true
+                                  }
+                                },
+                                "dereferencesTo": "fragmentCollection"
+                              },
+                              "optional": true
+                            },
+                            "fragment": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "fragmentValue"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         }
-                      }
+                      ]
                     }
                   },
                   "optional": true
@@ -7366,7 +8194,7 @@
             },
             "dereferencesTo": "assist.instruction.context"
           },
-          "optional": false
+          "optional": true
         }
       }
     }
@@ -7545,7 +8373,7 @@
           "value": {
             "type": "string"
           },
-          "optional": false
+          "optional": true
         },
         "description": {
           "type": "objectAttribute",
