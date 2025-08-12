@@ -206,7 +206,7 @@ export async function resolveInlineFragmentReferencesBatch(
     const collections = await client.fetch(collectionsQuery, { collectionIds })
     
     // Create a lookup map
-    const collectionMap = collections.reduce((map, collection) => {
+    const collectionMap = collections.reduce((map: Record<string, any>, collection: any) => {
       map[collection._id] = collection
       return map
     }, {} as Record<string, any>)
@@ -225,6 +225,7 @@ export async function resolveInlineFragmentReferencesBatch(
       const formattedValue = formatFragmentValue({
         label: fragment.label,
         value: fragment.value,
+        isActive: fragment.isActive,
         displayFormat: ref.displayFormat
       })
 
