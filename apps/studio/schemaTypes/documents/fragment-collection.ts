@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {FolderOpen} from 'lucide-react'
+import {FragmentReferencesPopulator} from '../../components/fragment-references-populator'
 
 export default defineType({
   name: 'fragmentCollection',
@@ -73,18 +74,11 @@ export default defineType({
               type: 'boolean',
               initialValue: true,
             }),
-            defineField({
-              name: 'notes',
-              title: 'Notes',
-              description: 'Optional internal notes about this fragment',
-              type: 'text',
-              rows: 2,
-            }),
           ],
           preview: {
             select: {
               label: 'label',
-              key: 'key.current',
+              key: 'key',
               value: 'value',
               isActive: 'isActive',
             },
@@ -107,6 +101,97 @@ export default defineType({
       type: 'boolean',
       initialValue: true,
     }),
+    defineField({
+      name: 'fragmentReferences',
+      title: 'Fragment References',
+      description: 'Auto-populated references showing where each fragment is used',
+      type: 'array',
+      readOnly: true,
+      components: {
+        input: FragmentReferencesPopulator
+      },
+      of: [
+        {
+          type: 'object',
+          name: 'fragmentReferenceInfo',
+          title: 'Fragment Reference Info',
+          fields: [
+            defineField({
+              name: 'fragmentKey',
+              title: 'Fragment Key',
+              type: 'string',
+              readOnly: true,
+            }),
+            defineField({
+              name: 'references',
+              title: 'References',
+              type: 'array',
+              readOnly: true,
+              of: [
+                {
+                  type: 'object',
+                  name: 'documentReference',
+                  title: 'Document Reference',
+                  fields: [
+                    defineField({
+                      name: 'documentType',
+                      title: 'Document Type',
+                      type: 'string',
+                      readOnly: true,
+                    }),
+                    defineField({
+                      name: 'documentTitle',
+                      title: 'Document Title',
+                      type: 'string',
+                      readOnly: true,
+                    }),
+                    defineField({
+                      name: 'documentPath',
+                      title: 'Document Path',
+                      type: 'string',
+                      readOnly: true,
+                    }),
+                    defineField({
+                      name: 'fieldPath',
+                      title: 'Field Path',
+                      description: 'Where in the document this fragment is referenced',
+                      type: 'string',
+                      readOnly: true,
+                    }),
+                  ],
+                  preview: {
+                    select: {
+                      title: 'documentTitle',
+                      subtitle: 'documentType',
+                      path: 'documentPath',
+                    },
+                    prepare({title, subtitle, path}) {
+                      return {
+                        title: title || 'Untitled Document',
+                        subtitle: `${subtitle} • ${path || 'No path'}`,
+                      }
+                    },
+                  },
+                },
+              ],
+            }),
+          ],
+          preview: {
+            select: {
+              fragmentKey: 'fragmentKey',
+              referenceCount: 'references',
+            },
+            prepare({fragmentKey, referenceCount}) {
+              const count = Array.isArray(referenceCount) ? referenceCount.length : 0
+              return {
+                title: `Fragment: ${fragmentKey}`,
+                subtitle: `${count} reference${count !== 1 ? 's' : ''}`,
+              }
+            },
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
@@ -114,12 +199,16 @@ export default defineType({
       key: 'key.current',
       fragmentCount: 'fragments',
       isActive: 'isActive',
+      fragmentReferences: 'fragmentReferences',
     },
-    prepare({title, key, fragmentCount, isActive}) {
+    prepare({title, key, fragmentCount, isActive, fragmentReferences}) {
       const count = Array.isArray(fragmentCount) ? fragmentCount.length : 0
+      const totalReferences = Array.isArray(fragmentReferences) 
+        ? fragmentReferences.reduce((sum, frag) => sum + (Array.isArray(frag.references) ? frag.references.length : 0), 0)
+        : 0
       return {
         title: title || 'Untitled Collection',
-        subtitle: `${key || 'No key'} • ${count} fragment${count !== 1 ? 's' : ''} • ${isActive ? 'Active' : 'Inactive'}`,
+        subtitle: `${key || 'No key'} • ${count} fragment${count !== 1 ? 's' : ''} • ${totalReferences} total reference${totalReferences !== 1 ? 's' : ''} • ${isActive ? 'Active' : 'Inactive'}`,
         media: FolderOpen,
       }
     },

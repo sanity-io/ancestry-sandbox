@@ -40,7 +40,9 @@ const markDefsFragment = /* groq */ `
           key,
           isActive
         }
-      }
+      },
+      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,
+      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label
     }
   }
 `;
@@ -196,14 +198,29 @@ const productOverviewBlock = /* groq */ `
     disclaimers[]->{
       _id,
       title,
-      text
+      text[]{
+        ...,
+        ${markDefsFragment}
+      }
     }
   }
 `;
 
 const titleBlock = /* groq */ `
   _type == "title" => {
-    ...
+    ...,
+    text[]{
+      ...,
+      ${markDefsFragment}
+    },
+    disclaimers[]->{
+      _id,
+      title,
+      text[]{
+        ...,
+        ${markDefsFragment}
+      }
+    }
   }
 `;
 
@@ -213,7 +230,10 @@ const featureCardsIconBlock = /* groq */ `
     disclaimers[]->{
       _id,
       title,
-      text
+      text[]{
+        ...,
+        ${markDefsFragment}
+      }
     }
   }
 `;

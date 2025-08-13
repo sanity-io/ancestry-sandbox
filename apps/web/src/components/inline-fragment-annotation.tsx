@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import React, { useEffect, useState } from 'react'
-import { resolveInlineFragmentReference, formatFragmentValue } from '../lib/inline-fragment-resolver'
+import React from 'react'
+import { formatFragmentValue } from '../lib/inline-fragment-resolver'
 
 interface InlineFragmentAnnotationProps {
   children: React.ReactNode
@@ -12,67 +12,24 @@ interface InlineFragmentAnnotationProps {
   }
   fragment: string
   displayFormat: 'value-only' | 'label-value' | 'value-label'
+  resolvedValue?: string
+  resolvedLabel?: string
 }
 
-export const InlineFragmentAnnotation: React.FC<InlineFragmentAnnotationProps> = ({
-  children,
-  collection,
-  fragment,
-  displayFormat
-}) => {
-  const [resolvedFragment, setResolvedFragment] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const resolveFragment = async () => {
-      if (!collection?._id || !fragment) {
-        setError('Invalid fragment reference')
-        setIsLoading(false)
-        return
-      }
-
-      try {
-        setIsLoading(true)
-        setError(null)
-        
-        const resolved = await resolveInlineFragmentReference({
-          _type: 'inlineFragmentReference',
-          collection: { _ref: collection._id, _type: 'reference' },
-          fragment,
-          displayFormat
-        })
-
-        if (resolved) {
-          const formattedValue = formatFragmentValue(resolved)
-          setResolvedFragment(formattedValue)
-        } else {
-          setError('Fragment not found')
-        }
-      } catch (err) {
-        setError('Error resolving fragment')
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    resolveFragment()
-  }, [collection, fragment, displayFormat])
-
-  if (isLoading) {
-    return <span className="text-gray-400">Loading...</span>
+export const InlineFragmentAnnotation: React.FC<
+  InlineFragmentAnnotationProps
+> = ({ children, resolvedValue, resolvedLabel, displayFormat }) => {
+  // If we have pre-resolved values, use them immediately
+  if (resolvedValue && resolvedLabel) {
+    const formattedValue = formatFragmentValue({
+      label: resolvedLabel,
+      value: resolvedValue,
+      isActive: true,
+      displayFormat
+    })
+    return <span>{formattedValue}</span>
   }
 
-  if (error) {
-    return <span className="text-red-400" title={error}>[Fragment Error: {error}]</span>
-  }
-
-  if (resolvedFragment) {
-    return <span>{resolvedFragment}</span>
-  }
-
-  // Fallback to children if resolution fails
+  // Fallback to children if no resolved values (shouldn't happen with proper query)
   return <span>{children}</span>
 }
-
-export default InlineFragmentAnnotation

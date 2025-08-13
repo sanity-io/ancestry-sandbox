@@ -90,6 +90,8 @@ const components: Partial<PortableTextReactComponents> = {
           collection={value.collection}
           fragment={value.fragment}
           displayFormat={value.displayFormat}
+          resolvedValue={value.resolvedValue}
+          resolvedLabel={value.resolvedLabel}
         >
           {children}
         </InlineFragmentAnnotation>
