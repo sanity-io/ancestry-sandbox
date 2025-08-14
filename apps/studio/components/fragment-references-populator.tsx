@@ -91,8 +91,18 @@ export const FragmentReferencesPopulator: React.FC<{value: any; onChange: any; p
                 collection,
                 fragment
               }
+            },
+            "text": text[] {
+              _key,
+              _type,
+              markDefs[] {
+                _key,
+                _type,
+                collection,
+                fragment
+              }
             }
-          }[count(richText[].markDefs[_type == "inlineFragmentReference" && collection._ref == $baseCollectionId]) > 0]
+          }[count(richText[].markDefs[_type == "inlineFragmentReference" && collection._ref == $baseCollectionId]) > 0 || count(text[].markDefs[_type == "inlineFragmentReference" && collection._ref == $baseCollectionId]) > 0]
         }
       `
 
@@ -107,20 +117,44 @@ export const FragmentReferencesPopulator: React.FC<{value: any; onChange: any; p
           
           for (const doc of result.references) {
             // Look through all richText blocks for fragment references
-            for (const block of doc.richText) {
-              if (block.markDefs) {
-                for (const markDef of block.markDefs) {
-                  if (markDef._type === 'inlineFragmentReference' && 
-                      markDef.collection?._ref === baseCollectionId &&
-                      markDef.fragment === fragment.key) {
-                    references.push({
-                      _key: `ref_${doc._id}_${fragment.key}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-                      documentId: doc._id,
-                      documentType: doc._type,
-                      documentTitle: doc.title || 'Untitled',
-                      documentPath: getDocumentPath(doc),
-                      fieldPath: 'richText'
-                    })
+            if (doc.richText) {
+              for (const block of doc.richText) {
+                if (block.markDefs) {
+                  for (const markDef of block.markDefs) {
+                    if (markDef._type === 'inlineFragmentReference' && 
+                        markDef.collection?._ref === baseCollectionId &&
+                        markDef.fragment === fragment.key) {
+                      references.push({
+                        _key: `ref_${doc._id}_${fragment.key}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+                        documentId: doc._id,
+                        documentType: doc._type,
+                        documentTitle: doc.title || 'Untitled',
+                        documentPath: getDocumentPath(doc),
+                        fieldPath: 'richText'
+                      })
+                    }
+                  }
+                }
+              }
+            }
+            
+            // Look through all text blocks for fragment references (from customRichText)
+            if (doc.text) {
+              for (const block of doc.text) {
+                if (block.markDefs) {
+                  for (const markDef of block.markDefs) {
+                    if (markDef._type === 'inlineFragmentReference' && 
+                        markDef.collection?._ref === baseCollectionId &&
+                        markDef.fragment === fragment.key) {
+                      references.push({
+                        _key: `ref_${doc._id}_${fragment.key}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+                        documentId: doc._id,
+                        documentType: doc._type,
+                        documentTitle: doc.title || 'Untitled',
+                        documentPath: getDocumentPath(doc),
+                        fieldPath: 'text'
+                      })
+                    }
                   }
                 }
               }

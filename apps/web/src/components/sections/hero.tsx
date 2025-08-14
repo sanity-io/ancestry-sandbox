@@ -12,10 +12,40 @@ export function HeroBlock({
   title,
   buttons,
   badge,
+  badgeTextColor,
   image,
   richText,
   imageOnRight = true,
 }: HeroBlockProps & { imageOnRight?: boolean }) {
+  // Create inline style for badge text color if provided
+  // Handle different possible color field structures
+  const getBadgeColor = () => {
+    if (!badgeTextColor) return undefined;
+    
+    // Check if it's a color object with hex property
+    if (typeof badgeTextColor === 'object' && badgeTextColor !== null) {
+      const colorObj = badgeTextColor as any;
+      if (colorObj.hex && typeof colorObj.hex === 'string') {
+        return colorObj.hex;
+      }
+      if (colorObj.hsl && typeof colorObj.hsl === 'string') {
+        return colorObj.hsl;
+      }
+      if (colorObj.rgb && typeof colorObj.rgb === 'string') {
+        return colorObj.rgb;
+      }
+    }
+    
+    // If it's a string, assume it's a color value
+    if (typeof badgeTextColor === 'string') {
+      return badgeTextColor;
+    }
+    
+    return undefined;
+  };
+
+  const badgeStyle = getBadgeColor() ? { color: getBadgeColor() } : {};
+
   return (
     <section id="hero" className="mt-4 md:my-16">
       <div className="container mx-auto px-4 md:px-6">
@@ -24,7 +54,11 @@ export function HeroBlock({
           {imageOnRight ? (
             <>
               <div className="grid h-full grid-rows-[auto_1fr_auto] gap-4 items-center justify-items-center text-center lg:items-start lg:justify-items-start lg:text-left">
-                <Badge variant="secondary">{badge}</Badge>
+                {badge && (
+                  <Badge variant="secondary" style={badgeStyle}>
+                    {badge}
+                  </Badge>
+                )}
                 <div className="grid gap-4">
                   <h1 className="text-4xl lg:text-6xl font-semibold text-balance">{title}</h1>
                   <RichText
@@ -69,7 +103,11 @@ export function HeroBlock({
                 </div>
               )}
               <div className="grid h-full grid-rows-[auto_1fr_auto] gap-4 items-center justify-items-center text-center lg:items-start lg:justify-items-start lg:text-left">
-                <Badge variant="secondary">{badge}</Badge>
+                {badge && (
+                  <Badge variant="secondary" style={badgeStyle}>
+                    {badge}
+                  </Badge>
+                )}
                 <div className="grid gap-4">
                   <h1 className="text-4xl lg:text-6xl font-semibold text-balance">
                     {title}

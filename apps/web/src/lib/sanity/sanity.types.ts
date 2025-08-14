@@ -1561,7 +1561,7 @@ export type QueryImageTypeResult =
     }
   | null;
 // Variable: queryHomePageData
-// Query: *[_type == "homePage" && _id == "homePage"][0]{    ...,    _id,    _type,    "slug": slug.current,    title,    description,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    disclaimers[]->{      _id,      title,      text    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text    }  },      _type == "title" => {    ...  }  }  }
+// Query: *[_type == "homePage" && _id == "homePage"][0]{    ...,    _id,    _type,    "slug": slug.current,    title,    description,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,    badge,    badgeTextColor,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    cards[]{      ...,      text[]{        ...,          markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "title" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  }  }  }
 export type QueryHomePageDataResult = {
   _id: string;
   _type: "homePage";
@@ -1749,7 +1749,7 @@ export type QueryHomePageDataResult = {
           _type: "block";
           _key: string;
         }>;
-        cards?: Array<{
+        cards: Array<{
           title?: string;
           richText?: Array<{
             children?: Array<{
@@ -1796,17 +1796,72 @@ export type QueryHomePageDataResult = {
           };
           _type: "featureCardIcon";
           _key: string;
-        }>;
+          text: null;
+        }> | null;
         disclaimers: Array<{
           _id: string;
           title: string | null;
-          text: RichText | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
         }> | null;
+        text: null;
       }
     | {
         _key: string;
         _type: "hero";
-        badge?: string;
+        badge: string | null;
         title?: string;
         richText: Array<
           | {
@@ -1898,6 +1953,7 @@ export type QueryHomePageDataResult = {
           openInNewTab: boolean | null;
           href: string | null;
         }> | null;
+        badgeTextColor: null;
       }
     | {
         _key: string;
@@ -2058,7 +2114,60 @@ export type QueryHomePageDataResult = {
         disclaimers: Array<{
           _id: string;
           title: string | null;
-          text: RichText | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
         }> | null;
       }
     | {
@@ -2145,7 +2254,7 @@ export type QueryHomePageDataResult = {
     | {
         _key: string;
         _type: "title";
-        text?: Array<{
+        text: Array<{
           children?: Array<{
             marks?: Array<string>;
             text?: string;
@@ -2154,7 +2263,14 @@ export type QueryHomePageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<
+          markDefs: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+                openInNewTab: boolean | null;
+                href: string | "#" | null;
+              }
             | {
                 customLink?: CustomUrl;
                 _type: "customLink";
@@ -2171,18 +2287,69 @@ export type QueryHomePageDataResult = {
                 _type: "fragmentValue";
                 _key: string;
               }
-          >;
+          > | null;
           level?: number;
           _type: "block";
           _key: string;
-        }>;
-        disclaimers?: Array<{
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          _key: string;
-          [internalGroqTypeReferenceTo]?: "disclaimer";
-        }>;
+        }> | null;
+        disclaimers: Array<{
+          _id: string;
+          title: string | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
+        }> | null;
       }
   > | null;
   seoTitle?: string;
@@ -2202,7 +2369,7 @@ export type QueryHomePageDataResult = {
   ogDescription?: string;
 } | null;
 // Variable: querySlugPageData
-// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    "slug": slug.current,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    disclaimers[]->{      _id,      title,      text    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text    }  },      _type == "title" => {    ...  }  }  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    "slug": slug.current,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,    badge,    badgeTextColor,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    cards[]{      ...,      text[]{        ...,          markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "title" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  }  }  }
 export type QuerySlugPageDataResult = {
   _id: string;
   _type: "page";
@@ -2402,7 +2569,7 @@ export type QuerySlugPageDataResult = {
           _type: "block";
           _key: string;
         }>;
-        cards?: Array<{
+        cards: Array<{
           title?: string;
           richText?: Array<{
             children?: Array<{
@@ -2449,17 +2616,72 @@ export type QuerySlugPageDataResult = {
           };
           _type: "featureCardIcon";
           _key: string;
-        }>;
+          text: null;
+        }> | null;
         disclaimers: Array<{
           _id: string;
           title: string | null;
-          text: RichText | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
         }> | null;
+        text: null;
       }
     | {
         _key: string;
         _type: "hero";
-        badge?: string;
+        badge: string | null;
         title?: string;
         richText: Array<
           | {
@@ -2551,6 +2773,7 @@ export type QuerySlugPageDataResult = {
           openInNewTab: boolean | null;
           href: string | null;
         }> | null;
+        badgeTextColor: null;
       }
     | {
         _key: string;
@@ -2711,7 +2934,60 @@ export type QuerySlugPageDataResult = {
         disclaimers: Array<{
           _id: string;
           title: string | null;
-          text: RichText | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
         }> | null;
       }
     | {
@@ -2798,7 +3074,7 @@ export type QuerySlugPageDataResult = {
     | {
         _key: string;
         _type: "title";
-        text?: Array<{
+        text: Array<{
           children?: Array<{
             marks?: Array<string>;
             text?: string;
@@ -2807,7 +3083,14 @@ export type QuerySlugPageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<
+          markDefs: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+                openInNewTab: boolean | null;
+                href: string | "#" | null;
+              }
             | {
                 customLink?: CustomUrl;
                 _type: "customLink";
@@ -2824,18 +3107,69 @@ export type QuerySlugPageDataResult = {
                 _type: "fragmentValue";
                 _key: string;
               }
-          >;
+          > | null;
           level?: number;
           _type: "block";
           _key: string;
-        }>;
-        disclaimers?: Array<{
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          _key: string;
-          [internalGroqTypeReferenceTo]?: "disclaimer";
-        }>;
+        }> | null;
+        disclaimers: Array<{
+          _id: string;
+          title: string | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
+        }> | null;
       }
   > | null;
   seoTitle?: string;
@@ -2859,7 +3193,7 @@ export type QuerySlugPageDataResult = {
 // Query: *[_type == "page" && defined(slug.current)].slug.current
 export type QuerySlugPagePathsResult = Array<string | null>;
 // Variable: queryBlogIndexPageData
-// Query: *[_type == "blogIndex"][0]{    ...,    _id,    _type,    title,    description,    "displayFeaturedBlogs" : displayFeaturedBlogs == "yes",    "featuredBlogsCount" : featuredBlogsCount,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    disclaimers[]->{      _id,      title,      text    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text    }  },      _type == "title" => {    ...  }  },    "slug": slug.current,    "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    },    "featuredBlogs": *[_type == "blog" && (seoHideFromLists != true) && isFeatured == true] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    }  }
+// Query: *[_type == "blogIndex"][0]{    ...,    _id,    _type,    title,    description,    "displayFeaturedBlogs" : displayFeaturedBlogs == "yes",    "featuredBlogsCount" : featuredBlogsCount,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,    badge,    badgeTextColor,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    cards[]{      ...,      text[]{        ...,          markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "title" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  }  },    "slug": slug.current,    "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    },    "featuredBlogs": *[_type == "blog" && (seoHideFromLists != true) && isFeatured == true] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    }  }
 export type QueryBlogIndexPageDataResult = {
   _id: string;
   _type: "blogIndex";
@@ -3049,7 +3383,7 @@ export type QueryBlogIndexPageDataResult = {
           _type: "block";
           _key: string;
         }>;
-        cards?: Array<{
+        cards: Array<{
           title?: string;
           richText?: Array<{
             children?: Array<{
@@ -3096,17 +3430,72 @@ export type QueryBlogIndexPageDataResult = {
           };
           _type: "featureCardIcon";
           _key: string;
-        }>;
+          text: null;
+        }> | null;
         disclaimers: Array<{
           _id: string;
           title: string | null;
-          text: RichText | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
         }> | null;
+        text: null;
       }
     | {
         _key: string;
         _type: "hero";
-        badge?: string;
+        badge: string | null;
         title?: string;
         richText: Array<
           | {
@@ -3198,6 +3587,7 @@ export type QueryBlogIndexPageDataResult = {
           openInNewTab: boolean | null;
           href: string | null;
         }> | null;
+        badgeTextColor: null;
       }
     | {
         _key: string;
@@ -3358,7 +3748,60 @@ export type QueryBlogIndexPageDataResult = {
         disclaimers: Array<{
           _id: string;
           title: string | null;
-          text: RichText | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
         }> | null;
       }
     | {
@@ -3445,7 +3888,7 @@ export type QueryBlogIndexPageDataResult = {
     | {
         _key: string;
         _type: "title";
-        text?: Array<{
+        text: Array<{
           children?: Array<{
             marks?: Array<string>;
             text?: string;
@@ -3454,7 +3897,14 @@ export type QueryBlogIndexPageDataResult = {
           }>;
           style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
           listItem?: "bullet" | "number";
-          markDefs?: Array<
+          markDefs: Array<
+            | {
+                customLink?: CustomUrl;
+                _type: "customLink";
+                _key: string;
+                openInNewTab: boolean | null;
+                href: string | "#" | null;
+              }
             | {
                 customLink?: CustomUrl;
                 _type: "customLink";
@@ -3471,18 +3921,69 @@ export type QueryBlogIndexPageDataResult = {
                 _type: "fragmentValue";
                 _key: string;
               }
-          >;
+          > | null;
           level?: number;
           _type: "block";
           _key: string;
-        }>;
-        disclaimers?: Array<{
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          _key: string;
-          [internalGroqTypeReferenceTo]?: "disclaimer";
-        }>;
+        }> | null;
+        disclaimers: Array<{
+          _id: string;
+          title: string | null;
+          text: Array<
+            | {
+                children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+                }>;
+                style?: "h2" | "h3" | "h4" | "h5" | "h6" | "inline" | "normal";
+                listItem?: "bullet" | "number";
+                markDefs: Array<
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                      openInNewTab: boolean | null;
+                      href: string | "#" | null;
+                    }
+                  | {
+                      customLink?: CustomUrl;
+                      _type: "customLink";
+                      _key: string;
+                    }
+                  | {
+                      collection?: {
+                        _ref: string;
+                        _type: "reference";
+                        _weak?: boolean;
+                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      };
+                      fragment?: string;
+                      _type: "fragmentValue";
+                      _key: string;
+                    }
+                > | null;
+                level?: number;
+                _type: "block";
+                _key: string;
+              }
+            | {
+                asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                };
+                hotspot?: SanityImageHotspot;
+                crop?: SanityImageCrop;
+                caption?: string;
+                _type: "image";
+                _key: string;
+                markDefs: null;
+              }
+          > | null;
+        }> | null;
       }
   > | null;
   seoTitle?: string;
@@ -3660,7 +4161,7 @@ export type QueryBlogIndexPageDataResult = {
   }>;
 } | null;
 // Variable: queryBlogSlugPageData
-// Query: *[_type == "blog" && slug.current == $slug][0]{    ...,    "slug": slug.current,      authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  },      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    disclaimers[]->{      _id,      title,      text    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text    }  },      _type == "title" => {    ...  }  }  }
+// Query: *[_type == "blog" && slug.current == $slug][0]{    ...,    "slug": slug.current,      authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  },      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,    badge,    badgeTextColor,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    cards[]{      ...,      text[]{        ...,          markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "title" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  }  }  }
 export type QueryBlogSlugPageDataResult = {
   _id: string;
   _type: "blog";
@@ -4033,11 +4534,11 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '\n  *[_type == "page" && defined(image)][0]{\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n\n  }.image\n': QueryImageTypeResult;
-    '*[_type == "homePage" && _id == "homePage"][0]{\n    ...,\n    _id,\n    _type,\n    "slug": slug.current,\n    title,\n    description,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...\n  }\n\n  }\n\n  }': QueryHomePageDataResult;
-    '\n  *[_type == "page" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...\n  }\n\n  }\n\n  }\n  ': QuerySlugPageDataResult;
+    '*[_type == "homePage" && _id == "homePage"][0]{\n    ...,\n    _id,\n    _type,\n    "slug": slug.current,\n    title,\n    description,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    badge,\n    badgeTextColor,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    cards[]{\n      ...,\n      text[]{\n        ...,\n        \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n\n  }\n\n  }': QueryHomePageDataResult;
+    '\n  *[_type == "page" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    badge,\n    badgeTextColor,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    cards[]{\n      ...,\n      text[]{\n        ...,\n        \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n\n  }\n\n  }\n  ': QuerySlugPageDataResult;
     '\n  *[_type == "page" && defined(slug.current)].slug.current\n': QuerySlugPagePathsResult;
-    '\n  *[_type == "blogIndex"][0]{\n    ...,\n    _id,\n    _type,\n    title,\n    description,\n    "displayFeaturedBlogs" : displayFeaturedBlogs == "yes",\n    "featuredBlogsCount" : featuredBlogsCount,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...\n  }\n\n  }\n,\n    "slug": slug.current,\n    "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){\n      \n  _type,\n  _id,\n  title,\n  description,\n  "slug":slug.current,\n  richText,\n  orderRank,\n  category,\n  \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n  publishedAt,\n  \n  authors[0]->{\n    _id,\n    name,\n    position,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n\n  }\n\n\n    },\n    "featuredBlogs": *[_type == "blog" && (seoHideFromLists != true) && isFeatured == true] | order(orderRank asc){\n      \n  _type,\n  _id,\n  title,\n  description,\n  "slug":slug.current,\n  richText,\n  orderRank,\n  category,\n  \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n  publishedAt,\n  \n  authors[0]->{\n    _id,\n    name,\n    position,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n\n  }\n\n\n    }\n  }\n': QueryBlogIndexPageDataResult;
-    '\n  *[_type == "blog" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    \n  authors[0]->{\n    _id,\n    name,\n    position,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n\n  }\n,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...\n  }\n\n  }\n\n  }\n': QueryBlogSlugPageDataResult;
+    '\n  *[_type == "blogIndex"][0]{\n    ...,\n    _id,\n    _type,\n    title,\n    description,\n    "displayFeaturedBlogs" : displayFeaturedBlogs == "yes",\n    "featuredBlogsCount" : featuredBlogsCount,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    badge,\n    badgeTextColor,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    cards[]{\n      ...,\n      text[]{\n        ...,\n        \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n\n  }\n,\n    "slug": slug.current,\n    "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){\n      \n  _type,\n  _id,\n  title,\n  description,\n  "slug":slug.current,\n  richText,\n  orderRank,\n  category,\n  \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n  publishedAt,\n  \n  authors[0]->{\n    _id,\n    name,\n    position,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n\n  }\n\n\n    },\n    "featuredBlogs": *[_type == "blog" && (seoHideFromLists != true) && isFeatured == true] | order(orderRank asc){\n      \n  _type,\n  _id,\n  title,\n  description,\n  "slug":slug.current,\n  richText,\n  orderRank,\n  category,\n  \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n  publishedAt,\n  \n  authors[0]->{\n    _id,\n    name,\n    position,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n\n  }\n\n\n    }\n  }\n': QueryBlogIndexPageDataResult;
+    '\n  *[_type == "blog" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    \n  authors[0]->{\n    _id,\n    name,\n    position,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n\n  }\n,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "cta" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    \n  _type == "hero" => {\n    ...,\n    badge,\n    badgeTextColor,\n    \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  }\n,\n    \n  _type == "faqAccordion" => {\n    ...,\n    \n  "faqs": array::compact(faqs[]->{\n    title,\n    _id,\n    _type,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n\n  })\n,\n    link{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      )\n    }\n  }\n,\n    \n  _type == "subscribeNewsletter" => {\n    ...,\n    "subTitle": subTitle[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    "helperText": helperText[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    }\n  }\n,\n    \n  _type == "imageLinkCards" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n  }\n,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n    "cards": array::compact(cards[]{\n      ...,\n      "openInNewTab": url.openInNewTab,\n      "href": select(\n        url.type == "internal" => url.internal->slug.current,\n        url.type == "external" => url.external,\n        url.href\n      ),\n      \n  image{\n    ...,\n    ...asset->{\n      "alt": coalesce(altText, originalFilename, "no-alt"),\n      "blurData": metadata.lqip,\n      "dominantColor": metadata.palette.dominant.background\n    },\n  }\n,\n    })\n  }\n,\n    \n  _type == "featureCardsIcon" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    cards[]{\n      ...,\n      text[]{\n        ...,\n        \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "productOverview" => {\n    ...,\n    products[]{\n      product->{\n        _id,\n        title,\n        image,\n        price,\n        description,\n        features[]->{\n          _id,\n          title,\n          ancestryDnaRequired\n        }\n      }\n    },\n    loggedInProducts[]->{\n      _id,\n      title,\n      image,\n      price,\n      description,\n      features[]->{\n        _id,\n        title,\n        ancestryDnaRequired\n      }\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n,\n    \n  _type == "title" => {\n    ...,\n    text[]{\n      ...,\n      \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n    _type == "inlineFragmentReference" => {\n      ...,\n      collection->{\n        _id,\n        title,\n        key,\n        fragments[isActive == true] {\n          _key,\n          label,\n          value,\n          key,\n          isActive\n        }\n      },\n      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n    }\n  }\n\n    },\n    disclaimers[]->{\n      _id,\n      title,\n      text[]{\n        ...,\n        markDefs[]{\n          ...,\n          \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n,\n          _type == "inlineFragmentReference" => {\n            ...,\n            collection->{\n              _id,\n              title,\n              key,\n              fragments[isActive == true] {\n                _key,\n                label,\n                value,\n                key,\n                isActive\n              }\n            },\n            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,\n            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label\n          }\n        }\n      }\n    }\n  }\n\n  }\n\n  }\n': QueryBlogSlugPageDataResult;
     '\n  *[_type == "blog" && defined(slug.current)].slug.current\n': QueryBlogPathsResult;
     '\n  *[_type == "homePage" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n  ': QueryHomePageOGDataResult;
     '\n  *[_type == "page" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n': QuerySlugPageOGDataResult;

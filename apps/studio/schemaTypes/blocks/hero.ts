@@ -18,6 +18,12 @@ export const hero = defineType({
         "Optional badge text displayed above the title, useful for highlighting new features or promotions",
     }),
     defineField({
+      name: "badgeTextColor",
+      type: "color",
+      title: "Badge Text Color",
+      description: "Color for the badge text (defaults to white if not set)",
+    }),
+    defineField({
       name: "title",
       type: "string",
       title: "Title",

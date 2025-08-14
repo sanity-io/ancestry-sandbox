@@ -121,6 +121,8 @@ const imageLinkCardsBlock = /* groq */ `
 const heroBlock = /* groq */ `
   _type == "hero" => {
     ...,
+    badge,
+    badgeTextColor,
     ${imageFragment},
     ${buttonsFragment},
     ${richTextFragment}
@@ -200,7 +202,27 @@ const productOverviewBlock = /* groq */ `
       title,
       text[]{
         ...,
-        ${markDefsFragment}
+        markDefs[]{
+          ...,
+          ${customLinkFragment},
+          _type == "inlineFragmentReference" => {
+            ...,
+            collection->{
+              _id,
+              title,
+              key,
+              fragments[isActive == true] {
+                _key,
+                label,
+                value,
+                key,
+                isActive
+              }
+            },
+            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,
+            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label
+          }
+        }
       }
     }
   }
@@ -218,7 +240,27 @@ const titleBlock = /* groq */ `
       title,
       text[]{
         ...,
-        ${markDefsFragment}
+        markDefs[]{
+          ...,
+          ${customLinkFragment},
+          _type == "inlineFragmentReference" => {
+            ...,
+            collection->{
+              _id,
+              title,
+              key,
+              fragments[isActive == true] {
+                _key,
+                label,
+                value,
+                key,
+                isActive
+              }
+            },
+            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,
+            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label
+          }
+        }
       }
     }
   }
@@ -227,12 +269,43 @@ const titleBlock = /* groq */ `
 const featureCardsIconBlock = /* groq */ `
   _type == "featureCardsIcon" => {
     ...,
+    text[]{
+      ...,
+      ${markDefsFragment}
+    },
+    cards[]{
+      ...,
+      text[]{
+        ...,
+        ${markDefsFragment}
+      }
+    },
     disclaimers[]->{
       _id,
       title,
       text[]{
         ...,
-        ${markDefsFragment}
+        markDefs[]{
+          ...,
+          ${customLinkFragment},
+          _type == "inlineFragmentReference" => {
+            ...,
+            collection->{
+              _id,
+              title,
+              key,
+              fragments[isActive == true] {
+                _key,
+                label,
+                value,
+                key,
+                isActive
+              }
+            },
+            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,
+            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label
+          }
+        }
       }
     }
   }

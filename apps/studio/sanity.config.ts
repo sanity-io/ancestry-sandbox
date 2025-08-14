@@ -10,6 +10,7 @@ import {
 import { iconPicker } from "sanity-plugin-icon-picker";
 import { media, mediaAssetSource } from "sanity-plugin-media";
 import {fieldLevelExperiments} from '@sanity/personalization-plugin';
+import { colorInput } from '@sanity/color-input';
 import { Logo } from "./components/logo";
 import { locations } from "./location";
 import { presentationUrl } from "./plugins/presentation-url";
@@ -73,6 +74,7 @@ export default defineConfig({
     media(),
     presentationUrl(),
     unsplashImageAsset(),
+    colorInput(),
   ],
 
   form: {
