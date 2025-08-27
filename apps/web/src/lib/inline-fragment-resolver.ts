@@ -90,19 +90,18 @@ export function formatFragmentValue(
   try {
     // Handle rich text content
     if (fragment.dataType === 'text' && Array.isArray(fragment.value)) {
-      // For rich text, extract plain text content
+      // For rich text, extract plain text content with preserved line breaks
       const plainText = extractPlainTextFromRichText(fragment.value)
-      const formattedValue = plainText.replace(/\n/g, ' ')
       
       // Apply display format
       switch (fragment.displayFormat) {
         case 'label-value':
-          return `${fragment.label}: ${formattedValue}`
+          return `${fragment.label}: ${plainText}`
         case 'value-label':
-          return `${formattedValue} (${fragment.label})`
+          return `${plainText} (${fragment.label})`
         case 'value-only':
         default:
-          return formattedValue
+          return plainText
       }
     }
     
@@ -116,9 +115,10 @@ export function formatFragmentValue(
         formattedValue = numValue.toString()
       }
     } else if (fragment.dataType === 'text') {
-      // For legacy text content, ensure proper line breaks
+      // For legacy text content, preserve line breaks
       if (typeof formattedValue === 'string') {
-        formattedValue = formattedValue.replace(/\n/g, ' ')
+        // Don't replace newlines - preserve them for multi-line display
+        formattedValue = formattedValue
       } else {
         formattedValue = '[Text Content]'
       }
@@ -159,7 +159,7 @@ function extractPlainTextFromRichText(richText: any[]): string {
         return item.alt || '[Image]'
       }
       return ''
-    }).join(' ')
+    }).join('\n') // Join blocks with newlines to preserve multi-line formatting
   } catch (error) {
     console.warn('Error extracting plain text from rich text:', error)
     return '[Rich Text Content]'

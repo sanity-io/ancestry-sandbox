@@ -54,6 +54,22 @@ export const InlineFragmentAnnotation: React.FC<
         displayFormat,
         dataType: detectedDataType
       })
+      
+      // Handle multi-line content by splitting on newlines and rendering with line breaks
+      if (typeof formattedValue === 'string' && formattedValue.includes('\n')) {
+        const lines = formattedValue.split('\n')
+        return (
+          <span>
+            {lines.map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < lines.length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </span>
+        )
+      }
+      
       return <span>{formattedValue}</span>
     } catch (error) {
       console.warn('Error formatting fragment value:', error)
