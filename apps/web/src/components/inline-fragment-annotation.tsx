@@ -14,18 +14,20 @@ interface InlineFragmentAnnotationProps {
   displayFormat: 'value-only' | 'label-value' | 'value-label'
   resolvedValue?: string
   resolvedLabel?: string
+  dataType?: 'string' | 'text' | 'number'
 }
 
 export const InlineFragmentAnnotation: React.FC<
   InlineFragmentAnnotationProps
-> = ({ children, resolvedValue, resolvedLabel, displayFormat }) => {
+> = ({ children, resolvedValue, resolvedLabel, displayFormat, dataType = 'string' }) => {
   // If we have pre-resolved values, use them immediately
   if (resolvedValue && resolvedLabel) {
     const formattedValue = formatFragmentValue({
       label: resolvedLabel,
       value: resolvedValue,
       isActive: true,
-      displayFormat
+      displayFormat,
+      dataType
     })
     return <span>{formattedValue}</span>
   }
