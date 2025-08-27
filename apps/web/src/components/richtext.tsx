@@ -85,11 +85,30 @@ const components: Partial<PortableTextReactComponents> = {
       );
     },
     inlineFragmentReference: ({ children, value }) => {
+      // Extract only the primitive values we need to avoid React serialization errors
+      const collection = {
+        _id: value.collection?._ref || '',
+        title: value.collection?.title || '',
+        key: { current: value.collection?.key?.current || '' }
+      }
+      
+      // Ensure we have safe, serializable values before rendering
+      const hasSafeValues = value.resolvedValue && value.resolvedLabel && 
+        (typeof value.resolvedValue === 'string' || 
+         (Array.isArray(value.resolvedValue) && value.resolvedValue.every((item: any) => 
+           item && typeof item === 'object' && item._type
+         )))
+      
+      // If we don't have safe values, just render the children (fragment reference)
+      if (!hasSafeValues) {
+        return <span className="inline-fragment-reference">{children}</span>
+      }
+      
       return (
         <InlineFragmentAnnotation
-          collection={value.collection}
-          fragment={value.fragment}
-          displayFormat={value.displayFormat}
+          collection={collection}
+          fragment={value.fragment || ''}
+          displayFormat={value.displayFormat || 'value-only'}
           resolvedValue={value.resolvedValue}
           resolvedLabel={value.resolvedLabel}
         >
