@@ -12,7 +12,6 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: process.env.NODE_ENV === "production",
-  perspective: "published",
   stega: {
     studioUrl: sanitizedStudioUrl,
     enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",

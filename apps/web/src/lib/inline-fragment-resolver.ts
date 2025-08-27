@@ -12,7 +12,8 @@ export interface InlineFragmentReference {
 
 export interface ResolvedInlineFragment {
   label: string
-  value: string
+  value: string | any[] // string for simple types, array for rich text
+  dataType: 'string' | 'text' | 'number'
   isActive: boolean
   displayFormat: 'value-only' | 'label-value' | 'value-label'
 }
@@ -42,6 +43,7 @@ export async function resolveInlineFragmentReference(
         label,
         value,
         key,
+        _type,
         isActive
       }
     }[0]`
@@ -57,9 +59,19 @@ export async function resolveInlineFragmentReference(
     }
 
     const fragmentData = result.fragments[0]
+    
+    // Determine data type from the fragment type
+    let dataType: 'string' | 'text' | 'number' = 'string'
+    if (fragmentData._type === 'fragmentText') {
+      dataType = 'text'
+    } else if (fragmentData._type === 'fragmentNumber') {
+      dataType = 'number'
+    }
+    
     return {
       label: fragmentData.label,
       value: fragmentData.value,
+      dataType,
       isActive: fragmentData.isActive,
       displayFormat
     }
@@ -70,19 +82,87 @@ export async function resolveInlineFragmentReference(
 }
 
 /**
- * Formats a resolved fragment according to the display format
+ * Formats a resolved fragment according to the display format and data type
  */
 export function formatFragmentValue(
   fragment: ResolvedInlineFragment
 ): string {
-  switch (fragment.displayFormat) {
-    case 'label-value':
-      return `${fragment.label}: ${fragment.value}`
-    case 'value-label':
-      return `${fragment.value} (${fragment.label})`
-    case 'value-only':
-    default:
-      return fragment.value
+  try {
+    // Handle rich text content
+    if (fragment.dataType === 'text' && Array.isArray(fragment.value)) {
+      // For rich text, extract plain text content
+      const plainText = extractPlainTextFromRichText(fragment.value)
+      const formattedValue = plainText.replace(/\n/g, ' ')
+      
+      // Apply display format
+      switch (fragment.displayFormat) {
+        case 'label-value':
+          return `${fragment.label}: ${formattedValue}`
+        case 'value-label':
+          return `${formattedValue} (${fragment.label})`
+        case 'value-only':
+        default:
+          return formattedValue
+      }
+    }
+    
+    // Handle simple text and number content
+    let formattedValue = fragment.value as string
+    
+    if (fragment.dataType === 'number') {
+      // For numbers, ensure proper formatting
+      const numValue = parseFloat(formattedValue)
+      if (!isNaN(numValue)) {
+        formattedValue = numValue.toString()
+      }
+    } else if (fragment.dataType === 'text') {
+      // For legacy text content, ensure proper line breaks
+      if (typeof formattedValue === 'string') {
+        formattedValue = formattedValue.replace(/\n/g, ' ')
+      } else {
+        formattedValue = '[Text Content]'
+      }
+    }
+    
+    // Apply display format
+    switch (fragment.displayFormat) {
+      case 'label-value':
+        return `${fragment.label}: ${formattedValue}`
+      case 'value-label':
+        return `${formattedValue} (${fragment.label})`
+      case 'value-only':
+      default:
+        return formattedValue
+    }
+  } catch (error) {
+    console.warn('Error formatting fragment value:', error)
+    return fragment.label || '[Fragment Content]'
+  }
+}
+
+/**
+ * Extracts plain text from rich text content
+ */
+function extractPlainTextFromRichText(richText: any[]): string {
+  if (!Array.isArray(richText)) return ''
+  
+  try {
+    return richText.map(item => {
+      if (item._type === 'block' && item.children && Array.isArray(item.children)) {
+        return item.children.map((child: any) => {
+          if (child && typeof child.text === 'string') {
+            return child.text
+          }
+          return ''
+        }).join('')
+      } else if (item._type === 'image') {
+        return item.alt || '[Image]'
+      }
+      return ''
+    }).join(' ')
+  } catch (error) {
+    console.warn('Error extracting plain text from rich text:', error)
+    return '[Rich Text Content]'
   }
 }
 
@@ -199,6 +279,7 @@ export async function resolveInlineFragmentReferencesBatch(
         label,
         value,
         key,
+        _type,
         isActive
       }
     }`
@@ -222,9 +303,18 @@ export async function resolveInlineFragmentReferencesBatch(
 
       if (!fragment) return { fragmentKey: ref.fragment, resolvedValue: null }
 
+      // Determine data type from the fragment type
+      let dataType: 'string' | 'text' | 'number' = 'string'
+      if (fragment._type === 'fragmentText') {
+        dataType = 'text'
+      } else if (fragment._type === 'fragmentNumber') {
+        dataType = 'number'
+      }
+      
       const formattedValue = formatFragmentValue({
         label: fragment.label,
         value: fragment.value,
+        dataType,
         isActive: fragment.isActive,
         displayFormat: ref.displayFormat
       })

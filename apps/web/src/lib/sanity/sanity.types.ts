@@ -87,14 +87,15 @@ export type SubscribeNewsletter = {
           _key: string;
         }
       | {
-          collection?: {
+          collection: {
             _ref: string;
             _type: "reference";
             _weak?: boolean;
             [internalGroqTypeReferenceTo]?: "fragmentCollection";
           };
-          fragment?: string;
-          _type: "fragmentValue";
+          fragment: string;
+          displayFormat?: "value-only" | "label-value" | "value-label";
+          _type: "inlineFragmentReference";
           _key: string;
         }
     >;
@@ -118,14 +119,15 @@ export type SubscribeNewsletter = {
           _key: string;
         }
       | {
-          collection?: {
+          collection: {
             _ref: string;
             _type: "reference";
             _weak?: boolean;
             [internalGroqTypeReferenceTo]?: "fragmentCollection";
           };
-          fragment?: string;
-          _type: "fragmentValue";
+          fragment: string;
+          displayFormat?: "value-only" | "label-value" | "value-label";
+          _type: "inlineFragmentReference";
           _key: string;
         }
     >;
@@ -138,7 +140,7 @@ export type SubscribeNewsletter = {
 export type ImageLinkCards = {
   _type: "imageLinkCards";
   eyebrow?: string;
-  title?: string;
+  title: string;
   richText?: Array<
     | {
         children?: Array<{
@@ -156,14 +158,15 @@ export type ImageLinkCards = {
               _key: string;
             }
           | {
-              collection?: {
+              collection: {
                 _ref: string;
                 _type: "reference";
                 _weak?: boolean;
                 [internalGroqTypeReferenceTo]?: "fragmentCollection";
               };
-              fragment?: string;
-              _type: "fragmentValue";
+              fragment: string;
+              displayFormat?: "value-only" | "label-value" | "value-label";
+              _type: "inlineFragmentReference";
               _key: string;
             }
         >;
@@ -191,8 +194,8 @@ export type ImageLinkCards = {
     } & Button
   >;
   cards?: Array<{
-    title?: string;
-    description?: string;
+    title: string;
+    description: string;
     image?: {
       asset?: {
         _ref: string;
@@ -213,9 +216,9 @@ export type ImageLinkCards = {
 export type FaqAccordion = {
   _type: "faqAccordion";
   eyebrow?: string;
-  title?: string;
+  title: string;
   subtitle?: string;
-  faqs?: Array<{
+  faqs: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -249,14 +252,15 @@ export type FeatureCardsIcon = {
           _key: string;
         }
       | {
-          collection?: {
+          collection: {
             _ref: string;
             _type: "reference";
             _weak?: boolean;
             [internalGroqTypeReferenceTo]?: "fragmentCollection";
           };
-          fragment?: string;
-          _type: "fragmentValue";
+          fragment: string;
+          displayFormat?: "value-only" | "label-value" | "value-label";
+          _type: "inlineFragmentReference";
           _key: string;
         }
     >;
@@ -282,14 +286,15 @@ export type FeatureCardsIcon = {
             _key: string;
           }
         | {
-            collection?: {
+            collection: {
               _ref: string;
               _type: "reference";
               _weak?: boolean;
               [internalGroqTypeReferenceTo]?: "fragmentCollection";
             };
-            fragment?: string;
-            _type: "fragmentValue";
+            fragment: string;
+            displayFormat?: "value-only" | "label-value" | "value-label";
+            _type: "inlineFragmentReference";
             _key: string;
           }
       >;
@@ -342,14 +347,15 @@ export type Cta = {
               _key: string;
             }
           | {
-              collection?: {
+              collection: {
                 _ref: string;
                 _type: "reference";
                 _weak?: boolean;
                 [internalGroqTypeReferenceTo]?: "fragmentCollection";
               };
-              fragment?: string;
-              _type: "fragmentValue";
+              fragment: string;
+              displayFormat?: "value-only" | "label-value" | "value-label";
+              _type: "inlineFragmentReference";
               _key: string;
             }
         >;
@@ -381,7 +387,8 @@ export type Cta = {
 export type Hero = {
   _type: "hero";
   badge?: string;
-  title?: string;
+  badgeTextColor?: Color;
+  title: string;
   richText?: Array<
     | {
         children?: Array<{
@@ -399,14 +406,15 @@ export type Hero = {
               _key: string;
             }
           | {
-              collection?: {
+              collection: {
                 _ref: string;
                 _type: "reference";
                 _weak?: boolean;
                 [internalGroqTypeReferenceTo]?: "fragmentCollection";
               };
-              fragment?: string;
-              _type: "fragmentValue";
+              fragment: string;
+              displayFormat?: "value-only" | "label-value" | "value-label";
+              _type: "inlineFragmentReference";
               _key: string;
             }
         >;
@@ -447,15 +455,16 @@ export type Hero = {
   >;
 };
 
-export type FragmentValue = {
-  _type: "fragmentValue";
-  collection?: {
+export type InlineFragmentReference = {
+  _type: "inlineFragmentReference";
+  collection: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "fragmentCollection";
   };
-  fragment?: string;
+  fragment: string;
+  displayFormat?: "value-only" | "label-value" | "value-label";
 };
 
 export type PageBuilder = Array<
@@ -502,14 +511,15 @@ export type RichText = Array<
             _key: string;
           }
         | {
-            collection?: {
+            collection: {
               _ref: string;
               _type: "reference";
               _weak?: boolean;
               [internalGroqTypeReferenceTo]?: "fragmentCollection";
             };
-            fragment?: string;
-            _type: "fragmentValue";
+            fragment: string;
+            displayFormat?: "value-only" | "label-value" | "value-label";
+            _type: "inlineFragmentReference";
             _key: string;
           }
       >;
@@ -538,11 +548,11 @@ export type Navbar = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  label?: string;
+  label: string;
   columns?: Array<
     | {
         title?: string;
-        links?: Array<{
+        links: Array<{
           icon?: IconPicker;
           name?: string;
           description?: string;
@@ -573,7 +583,7 @@ export type Footer = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  label?: string;
+  label: string;
   subtitle?: string;
   columns?: Array<{
     title?: string;
@@ -594,9 +604,9 @@ export type Settings = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  label?: string;
-  siteTitle?: string;
-  siteDescription?: string;
+  label: string;
+  siteTitle: string;
+  siteDescription: string;
   logo?: {
     asset?: {
       _ref: string;
@@ -626,7 +636,7 @@ export type BlogIndex = {
   _rev: string;
   title?: string;
   description?: string;
-  slug?: Slug;
+  slug: Slug;
   displayFeaturedBlogs?: "yes" | "no";
   featuredBlogsCount?: "1" | "2" | "3";
   pageBuilder?: PageBuilder;
@@ -655,7 +665,7 @@ export type HomePage = {
   _rev: string;
   title?: string;
   description?: string;
-  slug?: Slug;
+  slug: Slug;
   pageBuilder?: PageBuilder;
   seoTitle?: string;
   seoDescription?: string;
@@ -680,8 +690,8 @@ export type Disclaimer = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  text?: RichText;
+  title: string;
+  text: RichText;
 };
 
 export type Feature = {
@@ -690,7 +700,7 @@ export type Feature = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
+  title: string;
   description?: string;
   ancestryDnaRequired?: boolean;
 };
@@ -701,7 +711,7 @@ export type Author = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: string;
+  name: string;
   position?: string;
   image?: {
     asset?: {
@@ -717,24 +727,25 @@ export type Author = {
   bio?: string;
 };
 
-export type Blog = {
+export type Faq = {
   _id: string;
-  _type: "blog";
+  _type: "faq";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  orderRank?: string;
-  title?: string;
+  title: string;
+  richText?: RichText;
+};
+
+export type Page = {
+  _id: string;
+  _type: "page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: string;
   description?: string;
-  slug?: Slug;
-  authors?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "author";
-  }>;
-  publishedAt?: string;
+  slug: Slug;
   image?: {
     asset?: {
       _ref: string;
@@ -746,8 +757,57 @@ export type Blog = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+  category: "trees" | "search" | "memories" | "dna" | "explore";
+  pageBuilder?: PageBuilder;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  seoNoIndex?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
+};
+
+export type Blog = {
+  _id: string;
+  _type: "blog";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  orderRank?: string;
+  title: string;
+  description?: string;
+  slug: Slug;
+  authors: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "author";
+  }>;
+  publishedAt?: string;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   richText?: RichText;
-  category?:
+  category:
     | "entertainment-culture"
     | "family-history"
     | "history"
@@ -776,104 +836,38 @@ export type Blog = {
   ogDescription?: string;
 };
 
-export type TranslationMetadata = {
-  _id: string;
-  _type: "translation.metadata";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  translations?: Array<
-    {
-      _key: string;
-    } & InternationalizedArrayReferenceValue
-  >;
-  schemaTypes?: Array<string>;
+export type Color = {
+  _type: "color";
+  hex?: string;
+  alpha?: number;
+  hsl?: HslaColor;
+  hsv?: HsvaColor;
+  rgb?: RgbaColor;
 };
 
-export type InternationalizedArrayReferenceValue = {
-  _type: "internationalizedArrayReferenceValue";
-  value?:
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "page";
-      }
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "productOverview";
-      }
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "product";
-      }
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "faq";
-      };
+export type RgbaColor = {
+  _type: "rgbaColor";
+  r?: number;
+  g?: number;
+  b?: number;
+  a?: number;
 };
 
-export type Faq = {
-  _id: string;
-  _type: "faq";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  richText?: RichText;
+export type HsvaColor = {
+  _type: "hsvaColor";
+  h?: number;
+  s?: number;
+  v?: number;
+  a?: number;
 };
 
-export type Page = {
-  _id: string;
-  _type: "page";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  description?: string;
-  slug?: Slug;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  category?: "trees" | "search" | "memories" | "dna" | "explore";
-  pageBuilder?: PageBuilder;
-  seoTitle?: string;
-  seoDescription?: string;
-  seoImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  seoNoIndex?: boolean;
-  ogTitle?: string;
-  ogDescription?: string;
+export type HslaColor = {
+  _type: "hslaColor";
+  h?: number;
+  s?: number;
+  l?: number;
+  a?: number;
 };
-
-export type InternationalizedArrayReference = Array<
-  {
-    _key: string;
-  } & InternationalizedArrayReferenceValue
->;
 
 export type MediaTag = {
   _id: string;
@@ -887,7 +881,7 @@ export type MediaTag = {
 export type ExperimentFaq = {
   _type: "experimentFaq";
   default?: {
-    title?: string;
+    title: string;
     richText?: RichText;
     _type: "faq";
   };
@@ -903,8 +897,8 @@ export type ExperimentFaq = {
 export type ExperimentProduct = {
   _type: "experimentProduct";
   default?: {
-    title?: string;
-    image?: {
+    title: string;
+    image: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -916,8 +910,8 @@ export type ExperimentProduct = {
       alt?: string;
       _type: "image";
     };
-    description?: RichText;
-    price?: number;
+    description: RichText;
+    price: number;
     features?: Array<{
       _ref: string;
       _type: "reference";
@@ -1011,7 +1005,7 @@ export type VariantFaq = {
   variantId?: string;
   experimentId?: string;
   value?: {
-    title?: string;
+    title: string;
     richText?: RichText;
     _type: "faq";
   };
@@ -1022,8 +1016,8 @@ export type VariantProduct = {
   variantId?: string;
   experimentId?: string;
   value?: {
-    title?: string;
-    image?: {
+    title: string;
+    image: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -1035,8 +1029,8 @@ export type VariantProduct = {
       alt?: string;
       _type: "image";
     };
-    description?: RichText;
-    price?: number;
+    description: RichText;
+    price: number;
     features?: Array<{
       _ref: string;
       _type: "reference";
@@ -1061,8 +1055,8 @@ export type Product = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  image?: {
+  title: string;
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -1074,8 +1068,8 @@ export type Product = {
     alt?: string;
     _type: "image";
   };
-  description?: RichText;
-  price?: number;
+  description: RichText;
+  price: number;
   features?: Array<{
     _ref: string;
     _type: "reference";
@@ -1087,7 +1081,7 @@ export type Product = {
 
 export type ProductOverview = {
   _type: "productOverview";
-  products?: Array<{
+  products: Array<{
     product?: {
       _ref: string;
       _type: "reference";
@@ -1103,7 +1097,7 @@ export type ProductOverview = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "product";
   }>;
-  callToAction?: string;
+  callToAction: string;
   disclaimers?: Array<{
     _ref: string;
     _type: "reference";
@@ -1149,6 +1143,187 @@ export type VariantRichText = {
   variantId?: string;
   experimentId?: string;
   value?: RichText;
+};
+
+export type VariantTitle = {
+  _type: "variantTitle";
+  variantId?: string;
+  experimentId?: string;
+  value?: Title;
+};
+
+export type FragmentCollection = {
+  _id: string;
+  _type: "fragmentCollection";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: string;
+  key: Slug;
+  description?: string;
+  basedOnModel?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "fragmentModel";
+  };
+  createFromModel?: string;
+  fragments: Array<
+    | {
+        label: string;
+        key: string;
+        value: string;
+        isActive?: boolean;
+        _type: "fragmentString";
+        _key: string;
+      }
+    | {
+        label: string;
+        key: string;
+        value: Array<
+          | {
+              children?: Array<{
+                marks?: Array<string>;
+                text?: string;
+                _type: "span";
+                _key: string;
+              }>;
+              style?: "normal" | "h1" | "h2" | "h3" | "blockquote";
+              listItem?: "bullet" | "number";
+              markDefs?: Array<{
+                href?: string;
+                openInNewTab?: boolean;
+                _type: "link";
+                _key: string;
+              }>;
+              level?: number;
+              _type: "block";
+              _key: string;
+            }
+          | {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              _type: "image";
+              _key: string;
+            }
+        >;
+        isActive?: boolean;
+        _type: "fragmentText";
+        _key: string;
+      }
+    | {
+        label: string;
+        key: string;
+        value: number;
+        isActive?: boolean;
+        _type: "fragmentNumber";
+        _key: string;
+      }
+  >;
+  isActive?: boolean;
+  fragmentReferences?: Array<{
+    fragmentKey?: string;
+    references?: Array<{
+      documentType?: string;
+      documentTitle?: string;
+      documentPath?: string;
+      fieldPath?: string;
+      _type: "documentReference";
+      _key: string;
+    }>;
+    _type: "fragmentReferenceInfo";
+    _key: string;
+  }>;
+};
+
+export type FragmentModel = {
+  _id: string;
+  _type: "fragmentModel";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: string;
+  key: Slug;
+  description?: string;
+  category?: "marketing" | "legal" | "product" | "support" | "general";
+  fragmentTemplate: Array<
+    | {
+        label: string;
+        key: string;
+        defaultValue: string;
+        isRequired?: boolean;
+        description?: string;
+        placeholder?: string;
+        _type: "fragmentTemplateString";
+        _key: string;
+      }
+    | {
+        label: string;
+        key: string;
+        defaultValue: Array<
+          | {
+              children?: Array<{
+                marks?: Array<string>;
+                text?: string;
+                _type: "span";
+                _key: string;
+              }>;
+              style?: "normal" | "h1" | "h2" | "h3" | "blockquote";
+              listItem?: "bullet" | "number";
+              markDefs?: Array<{
+                href?: string;
+                openInNewTab?: boolean;
+                _type: "link";
+                _key: string;
+              }>;
+              level?: number;
+              _type: "block";
+              _key: string;
+            }
+          | {
+              asset?: {
+                _ref: string;
+                _type: "reference";
+                _weak?: boolean;
+                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              _type: "image";
+              _key: string;
+            }
+        >;
+        isRequired?: boolean;
+        description?: string;
+        placeholder?: string;
+        _type: "fragmentTemplateText";
+        _key: string;
+      }
+    | {
+        label: string;
+        key: string;
+        defaultValue: number;
+        isRequired?: boolean;
+        description?: string;
+        placeholder?: string;
+        _type: "fragmentTemplateNumber";
+        _key: string;
+      }
+  >;
+  collectionTemplate?: {
+    defaultTitle?: string;
+    defaultDescription?: string;
+    titlePattern?: string;
+  };
+  usageInstructions?: string;
+  isActive?: boolean;
+  usageCount?: number;
 };
 
 export type SanityImageCrop = {
@@ -1208,50 +1383,15 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type VariantTitle = {
-  _type: "variantTitle";
-  variantId?: string;
-  experimentId?: string;
-  value?: Title;
-};
-
-export type FragmentCollection = {
-  _id: string;
-  _type: "fragmentCollection";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  key?: Slug;
-  description?: string;
-  category?: "claims-legal" | "company" | "marketing" | "product" | "other";
-  fragments?: Array<{
-    label?: string;
-    key?: Slug;
-    value?: string;
-    dataType?:
-      | "single-line"
-      | "number"
-      | "number-with-text"
-      | "percentage"
-      | "currency";
-    description?: string;
-    isActive?: boolean;
-    _type: "fragment";
-    _key: string;
-  }>;
-  isActive?: boolean;
-};
-
 export type Slug = {
   _type: "slug";
-  current?: string;
+  current: string;
   source?: string;
 };
 
 export type CustomUrl = {
   _type: "customUrl";
-  type?: "internal" | "external";
+  type: "internal" | "external";
   openInNewTab?: boolean;
   external?: string;
   href?: string;
@@ -1294,14 +1434,15 @@ export type Title = {
           _key: string;
         }
       | {
-          collection?: {
+          collection: {
             _ref: string;
             _type: "reference";
             _weak?: boolean;
             [internalGroqTypeReferenceTo]?: "fragmentCollection";
           };
-          fragment?: string;
-          _type: "fragmentValue";
+          fragment: string;
+          displayFormat?: "value-only" | "label-value" | "value-label";
+          _type: "inlineFragmentReference";
           _key: string;
         }
     >;
@@ -1365,7 +1506,7 @@ export type SanityAssistOutputField = {
 
 export type SanityAssistInstructionContext = {
   _type: "sanity.assist.instruction.context";
-  reference?: {
+  reference: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -1398,7 +1539,7 @@ export type AssistInstructionContext = {
 
 export type SanityAssistInstructionUserInput = {
   _type: "sanity.assist.instruction.userInput";
-  message?: string;
+  message: string;
   description?: string;
 };
 
@@ -1472,7 +1613,7 @@ export type AllSanitySchemaTypes =
   | FeatureCardsIcon
   | Cta
   | Hero
-  | FragmentValue
+  | InlineFragmentReference
   | PageBuilder
   | RichText
   | Navbar
@@ -1483,12 +1624,13 @@ export type AllSanitySchemaTypes =
   | Disclaimer
   | Feature
   | Author
-  | Blog
-  | TranslationMetadata
-  | InternationalizedArrayReferenceValue
   | Faq
   | Page
-  | InternationalizedArrayReference
+  | Blog
+  | Color
+  | RgbaColor
+  | HsvaColor
+  | HslaColor
   | MediaTag
   | ExperimentFaq
   | ExperimentProduct
@@ -1506,13 +1648,14 @@ export type AllSanitySchemaTypes =
   | Button
   | VariantImage
   | VariantRichText
+  | VariantTitle
+  | FragmentCollection
+  | FragmentModel
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
-  | VariantTitle
-  | FragmentCollection
   | Slug
   | CustomUrl
   | Title
@@ -1570,7 +1713,7 @@ export type QueryHomePageDataResult = {
   _rev: string;
   title: string | null;
   description: string | null;
-  slug: string | null;
+  slug: string;
   pageBuilder: Array<
     | {
         _key: string;
@@ -1601,15 +1744,121 @@ export type QueryHomePageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -1644,10 +1893,10 @@ export type QueryHomePageDataResult = {
         _key: string;
         _type: "faqAccordion";
         eyebrow?: string;
-        title?: string;
+        title: string;
         subtitle?: string;
         faqs: Array<{
-          title: string | null;
+          title: string;
           _id: string;
           _type: "faq";
           richText: Array<
@@ -1674,15 +1923,121 @@ export type QueryHomePageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -1704,7 +2059,7 @@ export type QueryHomePageDataResult = {
                 markDefs: null;
               }
           > | null;
-        }> | null;
+        }>;
         link: {
           title?: string;
           description?: string;
@@ -1734,14 +2089,15 @@ export type QueryHomePageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
+                collection: {
                   _ref: string;
                   _type: "reference";
                   _weak?: boolean;
                   [internalGroqTypeReferenceTo]?: "fragmentCollection";
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
               }
           >;
@@ -1767,14 +2123,15 @@ export type QueryHomePageDataResult = {
                   _key: string;
                 }
               | {
-                  collection?: {
+                  collection: {
                     _ref: string;
                     _type: "reference";
                     _weak?: boolean;
                     [internalGroqTypeReferenceTo]?: "fragmentCollection";
                   };
-                  fragment?: string;
-                  _type: "fragmentValue";
+                  fragment: string;
+                  displayFormat?: "label-value" | "value-label" | "value-only";
+                  _type: "inlineFragmentReference";
                   _key: string;
                 }
             >;
@@ -1800,7 +2157,7 @@ export type QueryHomePageDataResult = {
         }> | null;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -1825,15 +2182,121 @@ export type QueryHomePageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -1854,7 +2317,7 @@ export type QueryHomePageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
         text: null;
       }
@@ -1862,7 +2325,8 @@ export type QueryHomePageDataResult = {
         _key: string;
         _type: "hero";
         badge: string | null;
-        title?: string;
+        badgeTextColor: Color | null;
+        title: string;
         richText: Array<
           | {
               children?: Array<{
@@ -1887,15 +2351,121 @@ export type QueryHomePageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -1953,13 +2523,12 @@ export type QueryHomePageDataResult = {
           openInNewTab: boolean | null;
           href: string | null;
         }> | null;
-        badgeTextColor: null;
       }
     | {
         _key: string;
         _type: "imageLinkCards";
         eyebrow?: string;
-        title?: string;
+        title: string;
         richText: Array<
           | {
               children?: Array<{
@@ -1984,15 +2553,121 @@ export type QueryHomePageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -2023,8 +2698,8 @@ export type QueryHomePageDataResult = {
           href: string | null;
         }> | null;
         cards: Array<{
-          title?: string;
-          description?: string;
+          title: string;
+          description: string;
           image:
             | {
                 asset?: {
@@ -2065,7 +2740,7 @@ export type QueryHomePageDataResult = {
         products: Array<{
           product: {
             _id: string;
-            title: string | null;
+            title: string;
             image: {
               asset?: {
                 _ref: string;
@@ -2077,19 +2752,19 @@ export type QueryHomePageDataResult = {
               crop?: SanityImageCrop;
               alt?: string;
               _type: "image";
-            } | null;
-            price: number | null;
-            description: RichText | null;
+            };
+            price: number;
+            description: RichText;
             features: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               ancestryDnaRequired: boolean | null;
             }> | null;
           } | null;
-        }> | null;
+        }>;
         loggedInProducts: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           image: {
             asset?: {
               _ref: string;
@@ -2101,19 +2776,19 @@ export type QueryHomePageDataResult = {
             crop?: SanityImageCrop;
             alt?: string;
             _type: "image";
-          } | null;
-          price: number | null;
-          description: RichText | null;
+          };
+          price: number;
+          description: RichText;
           features: Array<{
             _id: string;
-            title: string | null;
+            title: string;
             ancestryDnaRequired: boolean | null;
           }> | null;
         }> | null;
-        callToAction?: string;
+        callToAction: string;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -2138,15 +2813,121 @@ export type QueryHomePageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -2167,7 +2948,7 @@ export type QueryHomePageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
       }
     | {
@@ -2197,15 +2978,113 @@ export type QueryHomePageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -2235,15 +3114,113 @@ export type QueryHomePageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -2277,15 +3254,113 @@ export type QueryHomePageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -2294,7 +3369,7 @@ export type QueryHomePageDataResult = {
         }> | null;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -2319,15 +3394,121 @@ export type QueryHomePageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -2348,7 +3529,7 @@ export type QueryHomePageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
       }
   > | null;
@@ -2376,9 +3557,9 @@ export type QuerySlugPageDataResult = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
+  title: string;
   description?: string;
-  slug: string | null;
+  slug: string;
   image?: {
     asset?: {
       _ref: string;
@@ -2390,7 +3571,7 @@ export type QuerySlugPageDataResult = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  category?: "dna" | "explore" | "memories" | "search" | "trees";
+  category: "dna" | "explore" | "memories" | "search" | "trees";
   pageBuilder: Array<
     | {
         _key: string;
@@ -2421,15 +3602,121 @@ export type QuerySlugPageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -2464,10 +3751,10 @@ export type QuerySlugPageDataResult = {
         _key: string;
         _type: "faqAccordion";
         eyebrow?: string;
-        title?: string;
+        title: string;
         subtitle?: string;
         faqs: Array<{
-          title: string | null;
+          title: string;
           _id: string;
           _type: "faq";
           richText: Array<
@@ -2494,15 +3781,121 @@ export type QuerySlugPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -2524,7 +3917,7 @@ export type QuerySlugPageDataResult = {
                 markDefs: null;
               }
           > | null;
-        }> | null;
+        }>;
         link: {
           title?: string;
           description?: string;
@@ -2554,14 +3947,15 @@ export type QuerySlugPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
+                collection: {
                   _ref: string;
                   _type: "reference";
                   _weak?: boolean;
                   [internalGroqTypeReferenceTo]?: "fragmentCollection";
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
               }
           >;
@@ -2587,14 +3981,15 @@ export type QuerySlugPageDataResult = {
                   _key: string;
                 }
               | {
-                  collection?: {
+                  collection: {
                     _ref: string;
                     _type: "reference";
                     _weak?: boolean;
                     [internalGroqTypeReferenceTo]?: "fragmentCollection";
                   };
-                  fragment?: string;
-                  _type: "fragmentValue";
+                  fragment: string;
+                  displayFormat?: "label-value" | "value-label" | "value-only";
+                  _type: "inlineFragmentReference";
                   _key: string;
                 }
             >;
@@ -2620,7 +4015,7 @@ export type QuerySlugPageDataResult = {
         }> | null;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -2645,15 +4040,121 @@ export type QuerySlugPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -2674,7 +4175,7 @@ export type QuerySlugPageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
         text: null;
       }
@@ -2682,7 +4183,8 @@ export type QuerySlugPageDataResult = {
         _key: string;
         _type: "hero";
         badge: string | null;
-        title?: string;
+        badgeTextColor: Color | null;
+        title: string;
         richText: Array<
           | {
               children?: Array<{
@@ -2707,15 +4209,121 @@ export type QuerySlugPageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -2773,13 +4381,12 @@ export type QuerySlugPageDataResult = {
           openInNewTab: boolean | null;
           href: string | null;
         }> | null;
-        badgeTextColor: null;
       }
     | {
         _key: string;
         _type: "imageLinkCards";
         eyebrow?: string;
-        title?: string;
+        title: string;
         richText: Array<
           | {
               children?: Array<{
@@ -2804,15 +4411,121 @@ export type QuerySlugPageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -2843,8 +4556,8 @@ export type QuerySlugPageDataResult = {
           href: string | null;
         }> | null;
         cards: Array<{
-          title?: string;
-          description?: string;
+          title: string;
+          description: string;
           image:
             | {
                 asset?: {
@@ -2885,7 +4598,7 @@ export type QuerySlugPageDataResult = {
         products: Array<{
           product: {
             _id: string;
-            title: string | null;
+            title: string;
             image: {
               asset?: {
                 _ref: string;
@@ -2897,19 +4610,19 @@ export type QuerySlugPageDataResult = {
               crop?: SanityImageCrop;
               alt?: string;
               _type: "image";
-            } | null;
-            price: number | null;
-            description: RichText | null;
+            };
+            price: number;
+            description: RichText;
             features: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               ancestryDnaRequired: boolean | null;
             }> | null;
           } | null;
-        }> | null;
+        }>;
         loggedInProducts: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           image: {
             asset?: {
               _ref: string;
@@ -2921,19 +4634,19 @@ export type QuerySlugPageDataResult = {
             crop?: SanityImageCrop;
             alt?: string;
             _type: "image";
-          } | null;
-          price: number | null;
-          description: RichText | null;
+          };
+          price: number;
+          description: RichText;
           features: Array<{
             _id: string;
-            title: string | null;
+            title: string;
             ancestryDnaRequired: boolean | null;
           }> | null;
         }> | null;
-        callToAction?: string;
+        callToAction: string;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -2958,15 +4671,121 @@ export type QuerySlugPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -2987,7 +4806,7 @@ export type QuerySlugPageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
       }
     | {
@@ -3017,15 +4836,113 @@ export type QuerySlugPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -3055,15 +4972,113 @@ export type QuerySlugPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -3097,15 +5112,113 @@ export type QuerySlugPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -3114,7 +5227,7 @@ export type QuerySlugPageDataResult = {
         }> | null;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -3139,15 +5252,121 @@ export type QuerySlugPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -3168,7 +5387,7 @@ export type QuerySlugPageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
       }
   > | null;
@@ -3191,7 +5410,7 @@ export type QuerySlugPageDataResult = {
 } | null;
 // Variable: querySlugPagePaths
 // Query: *[_type == "page" && defined(slug.current)].slug.current
-export type QuerySlugPagePathsResult = Array<string | null>;
+export type QuerySlugPagePathsResult = Array<string>;
 // Variable: queryBlogIndexPageData
 // Query: *[_type == "blogIndex"][0]{    ...,    _id,    _type,    title,    description,    "displayFeaturedBlogs" : displayFeaturedBlogs == "yes",    "featuredBlogsCount" : featuredBlogsCount,      pageBuilder[]{    ...,    _type,      _type == "cta" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },      _type == "hero" => {    ...,    badge,    badgeTextColor,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  },      _type == "faqAccordion" => {    ...,      "faqs": array::compact(faqs[]->{    title,    _id,    _type,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  }  }),    link{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      )    }  },      _type == "subscribeNewsletter" => {    ...,    "subTitle": subTitle[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    "helperText": helperText[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    }  },      _type == "imageLinkCards" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }  },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    "cards": array::compact(cards[]{      ...,      "openInNewTab": url.openInNewTab,      "href": select(        url.type == "internal" => url.internal->slug.current,        url.type == "external" => url.external,        url.href      ),        image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },    })  },      _type == "featureCardsIcon" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    cards[]{      ...,      text[]{        ...,          markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "productOverview" => {    ...,    products[]{      product->{        _id,        title,        image,        price,        description,        features[]->{          _id,          title,          ancestryDnaRequired        }      }    },    loggedInProducts[]->{      _id,      title,      image,      price,      description,      features[]->{        _id,        title,        ancestryDnaRequired      }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  },      _type == "title" => {    ...,    text[]{      ...,        markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },    _type == "inlineFragmentReference" => {      ...,      collection->{        _id,        title,        key,        fragments[isActive == true] {          _key,          label,          value,          key,          isActive        }      },      "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,      "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label    }  }    },    disclaimers[]->{      _id,      title,      text[]{        ...,        markDefs[]{          ...,            ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  },          _type == "inlineFragmentReference" => {            ...,            collection->{              _id,              title,              key,              fragments[isActive == true] {                _key,                label,                value,                key,                isActive              }            },            "resolvedValue": collection->fragments[key == ^.fragment && isActive == true][0].value,            "resolvedLabel": collection->fragments[key == ^.fragment && isActive == true][0].label          }        }      }    }  }  },    "slug": slug.current,    "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    },    "featuredBlogs": *[_type == "blog" && (seoHideFromLists != true) && isFeatured == true] | order(orderRank asc){        _type,  _id,  title,  description,  "slug":slug.current,  richText,  orderRank,  category,    image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  },  publishedAt,    authors[0]->{    _id,    name,    position,      image{    ...,    ...asset->{      "alt": coalesce(altText, originalFilename, "no-alt"),      "blurData": metadata.lqip,      "dominantColor": metadata.palette.dominant.background    },  }  }    }  }
 export type QueryBlogIndexPageDataResult = {
@@ -3202,7 +5421,7 @@ export type QueryBlogIndexPageDataResult = {
   _rev: string;
   title: string | null;
   description: string | null;
-  slug: string | null;
+  slug: string;
   displayFeaturedBlogs: false | true;
   featuredBlogsCount: "1" | "2" | "3" | null;
   pageBuilder: Array<
@@ -3235,15 +5454,121 @@ export type QueryBlogIndexPageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -3278,10 +5603,10 @@ export type QueryBlogIndexPageDataResult = {
         _key: string;
         _type: "faqAccordion";
         eyebrow?: string;
-        title?: string;
+        title: string;
         subtitle?: string;
         faqs: Array<{
-          title: string | null;
+          title: string;
           _id: string;
           _type: "faq";
           richText: Array<
@@ -3308,15 +5633,121 @@ export type QueryBlogIndexPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -3338,7 +5769,7 @@ export type QueryBlogIndexPageDataResult = {
                 markDefs: null;
               }
           > | null;
-        }> | null;
+        }>;
         link: {
           title?: string;
           description?: string;
@@ -3368,14 +5799,15 @@ export type QueryBlogIndexPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
+                collection: {
                   _ref: string;
                   _type: "reference";
                   _weak?: boolean;
                   [internalGroqTypeReferenceTo]?: "fragmentCollection";
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
               }
           >;
@@ -3401,14 +5833,15 @@ export type QueryBlogIndexPageDataResult = {
                   _key: string;
                 }
               | {
-                  collection?: {
+                  collection: {
                     _ref: string;
                     _type: "reference";
                     _weak?: boolean;
                     [internalGroqTypeReferenceTo]?: "fragmentCollection";
                   };
-                  fragment?: string;
-                  _type: "fragmentValue";
+                  fragment: string;
+                  displayFormat?: "label-value" | "value-label" | "value-only";
+                  _type: "inlineFragmentReference";
                   _key: string;
                 }
             >;
@@ -3434,7 +5867,7 @@ export type QueryBlogIndexPageDataResult = {
         }> | null;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -3459,15 +5892,121 @@ export type QueryBlogIndexPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -3488,7 +6027,7 @@ export type QueryBlogIndexPageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
         text: null;
       }
@@ -3496,7 +6035,8 @@ export type QueryBlogIndexPageDataResult = {
         _key: string;
         _type: "hero";
         badge: string | null;
-        title?: string;
+        badgeTextColor: Color | null;
+        title: string;
         richText: Array<
           | {
               children?: Array<{
@@ -3521,15 +6061,121 @@ export type QueryBlogIndexPageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -3587,13 +6233,12 @@ export type QueryBlogIndexPageDataResult = {
           openInNewTab: boolean | null;
           href: string | null;
         }> | null;
-        badgeTextColor: null;
       }
     | {
         _key: string;
         _type: "imageLinkCards";
         eyebrow?: string;
-        title?: string;
+        title: string;
         richText: Array<
           | {
               children?: Array<{
@@ -3618,15 +6263,121 @@ export type QueryBlogIndexPageDataResult = {
                     _key: string;
                   }
                 | {
-                    collection?: {
-                      _ref: string;
-                      _type: "reference";
-                      _weak?: boolean;
-                      [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                    collection: {
+                      _id: string;
+                      title: string;
+                      key: Slug;
+                      fragments: Array<
+                        | {
+                            _key: string;
+                            label: string;
+                            value: Array<
+                              | {
+                                  children?: Array<{
+                                    marks?: Array<string>;
+                                    text?: string;
+                                    _type: "span";
+                                    _key: string;
+                                  }>;
+                                  style?:
+                                    | "blockquote"
+                                    | "h1"
+                                    | "h2"
+                                    | "h3"
+                                    | "normal";
+                                  listItem?: "bullet" | "number";
+                                  markDefs?: Array<{
+                                    href?: string;
+                                    openInNewTab?: boolean;
+                                    _type: "link";
+                                    _key: string;
+                                  }>;
+                                  level?: number;
+                                  _type: "block";
+                                  _key: string;
+                                }
+                              | {
+                                  asset?: {
+                                    _ref: string;
+                                    _type: "reference";
+                                    _weak?: boolean;
+                                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                  };
+                                  hotspot?: SanityImageHotspot;
+                                  crop?: SanityImageCrop;
+                                  _type: "image";
+                                  _key: string;
+                                }
+                            >;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: number;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                        | {
+                            _key: string;
+                            label: string;
+                            value: string;
+                            key: string;
+                            isActive: boolean | null;
+                          }
+                      >;
                     };
-                    fragment?: string;
-                    _type: "fragmentValue";
+                    fragment: string;
+                    displayFormat?:
+                      | "label-value"
+                      | "value-label"
+                      | "value-only";
+                    _type: "inlineFragmentReference";
                     _key: string;
+                    resolvedValue:
+                      | Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >
+                      | number
+                      | string
+                      | null;
+                    resolvedLabel: string | null;
                   }
               > | null;
               level?: number;
@@ -3657,8 +6408,8 @@ export type QueryBlogIndexPageDataResult = {
           href: string | null;
         }> | null;
         cards: Array<{
-          title?: string;
-          description?: string;
+          title: string;
+          description: string;
           image:
             | {
                 asset?: {
@@ -3699,7 +6450,7 @@ export type QueryBlogIndexPageDataResult = {
         products: Array<{
           product: {
             _id: string;
-            title: string | null;
+            title: string;
             image: {
               asset?: {
                 _ref: string;
@@ -3711,19 +6462,19 @@ export type QueryBlogIndexPageDataResult = {
               crop?: SanityImageCrop;
               alt?: string;
               _type: "image";
-            } | null;
-            price: number | null;
-            description: RichText | null;
+            };
+            price: number;
+            description: RichText;
             features: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               ancestryDnaRequired: boolean | null;
             }> | null;
           } | null;
-        }> | null;
+        }>;
         loggedInProducts: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           image: {
             asset?: {
               _ref: string;
@@ -3735,19 +6486,19 @@ export type QueryBlogIndexPageDataResult = {
             crop?: SanityImageCrop;
             alt?: string;
             _type: "image";
-          } | null;
-          price: number | null;
-          description: RichText | null;
+          };
+          price: number;
+          description: RichText;
           features: Array<{
             _id: string;
-            title: string | null;
+            title: string;
             ancestryDnaRequired: boolean | null;
           }> | null;
         }> | null;
-        callToAction?: string;
+        callToAction: string;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -3772,15 +6523,121 @@ export type QueryBlogIndexPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -3801,7 +6658,7 @@ export type QueryBlogIndexPageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
       }
     | {
@@ -3831,15 +6688,113 @@ export type QueryBlogIndexPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -3869,15 +6824,113 @@ export type QueryBlogIndexPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -3911,15 +6964,113 @@ export type QueryBlogIndexPageDataResult = {
                 _key: string;
               }
             | {
-                collection?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                collection: {
+                  _id: string;
+                  title: string;
+                  key: Slug;
+                  fragments: Array<
+                    | {
+                        _key: string;
+                        label: string;
+                        value: Array<
+                          | {
+                              children?: Array<{
+                                marks?: Array<string>;
+                                text?: string;
+                                _type: "span";
+                                _key: string;
+                              }>;
+                              style?:
+                                | "blockquote"
+                                | "h1"
+                                | "h2"
+                                | "h3"
+                                | "normal";
+                              listItem?: "bullet" | "number";
+                              markDefs?: Array<{
+                                href?: string;
+                                openInNewTab?: boolean;
+                                _type: "link";
+                                _key: string;
+                              }>;
+                              level?: number;
+                              _type: "block";
+                              _key: string;
+                            }
+                          | {
+                              asset?: {
+                                _ref: string;
+                                _type: "reference";
+                                _weak?: boolean;
+                                [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                              };
+                              hotspot?: SanityImageHotspot;
+                              crop?: SanityImageCrop;
+                              _type: "image";
+                              _key: string;
+                            }
+                        >;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: number;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                    | {
+                        _key: string;
+                        label: string;
+                        value: string;
+                        key: string;
+                        isActive: boolean | null;
+                      }
+                  >;
                 };
-                fragment?: string;
-                _type: "fragmentValue";
+                fragment: string;
+                displayFormat?: "label-value" | "value-label" | "value-only";
+                _type: "inlineFragmentReference";
                 _key: string;
+                resolvedValue:
+                  | Array<
+                      | {
+                          children?: Array<{
+                            marks?: Array<string>;
+                            text?: string;
+                            _type: "span";
+                            _key: string;
+                          }>;
+                          style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                          listItem?: "bullet" | "number";
+                          markDefs?: Array<{
+                            href?: string;
+                            openInNewTab?: boolean;
+                            _type: "link";
+                            _key: string;
+                          }>;
+                          level?: number;
+                          _type: "block";
+                          _key: string;
+                        }
+                      | {
+                          asset?: {
+                            _ref: string;
+                            _type: "reference";
+                            _weak?: boolean;
+                            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                          };
+                          hotspot?: SanityImageHotspot;
+                          crop?: SanityImageCrop;
+                          _type: "image";
+                          _key: string;
+                        }
+                    >
+                  | number
+                  | string
+                  | null;
+                resolvedLabel: string | null;
               }
           > | null;
           level?: number;
@@ -3928,7 +7079,7 @@ export type QueryBlogIndexPageDataResult = {
         }> | null;
         disclaimers: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           text: Array<
             | {
                 children?: Array<{
@@ -3953,15 +7104,121 @@ export type QueryBlogIndexPageDataResult = {
                       _key: string;
                     }
                   | {
-                      collection?: {
-                        _ref: string;
-                        _type: "reference";
-                        _weak?: boolean;
-                        [internalGroqTypeReferenceTo]?: "fragmentCollection";
+                      collection: {
+                        _id: string;
+                        title: string;
+                        key: Slug;
+                        fragments: Array<
+                          | {
+                              _key: string;
+                              label: string;
+                              value: Array<
+                                | {
+                                    children?: Array<{
+                                      marks?: Array<string>;
+                                      text?: string;
+                                      _type: "span";
+                                      _key: string;
+                                    }>;
+                                    style?:
+                                      | "blockquote"
+                                      | "h1"
+                                      | "h2"
+                                      | "h3"
+                                      | "normal";
+                                    listItem?: "bullet" | "number";
+                                    markDefs?: Array<{
+                                      href?: string;
+                                      openInNewTab?: boolean;
+                                      _type: "link";
+                                      _key: string;
+                                    }>;
+                                    level?: number;
+                                    _type: "block";
+                                    _key: string;
+                                  }
+                                | {
+                                    asset?: {
+                                      _ref: string;
+                                      _type: "reference";
+                                      _weak?: boolean;
+                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                    };
+                                    hotspot?: SanityImageHotspot;
+                                    crop?: SanityImageCrop;
+                                    _type: "image";
+                                    _key: string;
+                                  }
+                              >;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: number;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                          | {
+                              _key: string;
+                              label: string;
+                              value: string;
+                              key: string;
+                              isActive: boolean | null;
+                            }
+                        >;
                       };
-                      fragment?: string;
-                      _type: "fragmentValue";
+                      fragment: string;
+                      displayFormat?:
+                        | "label-value"
+                        | "value-label"
+                        | "value-only";
+                      _type: "inlineFragmentReference";
                       _key: string;
+                      resolvedValue:
+                        | Array<
+                            | {
+                                children?: Array<{
+                                  marks?: Array<string>;
+                                  text?: string;
+                                  _type: "span";
+                                  _key: string;
+                                }>;
+                                style?:
+                                  | "blockquote"
+                                  | "h1"
+                                  | "h2"
+                                  | "h3"
+                                  | "normal";
+                                listItem?: "bullet" | "number";
+                                markDefs?: Array<{
+                                  href?: string;
+                                  openInNewTab?: boolean;
+                                  _type: "link";
+                                  _key: string;
+                                }>;
+                                level?: number;
+                                _type: "block";
+                                _key: string;
+                              }
+                            | {
+                                asset?: {
+                                  _ref: string;
+                                  _type: "reference";
+                                  _weak?: boolean;
+                                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                                };
+                                hotspot?: SanityImageHotspot;
+                                crop?: SanityImageCrop;
+                                _type: "image";
+                                _key: string;
+                              }
+                          >
+                        | number
+                        | string
+                        | null;
+                      resolvedLabel: string | null;
                     }
                 > | null;
                 level?: number;
@@ -3982,7 +7239,7 @@ export type QueryBlogIndexPageDataResult = {
                 _key: string;
                 markDefs: null;
               }
-          > | null;
+          >;
         }> | null;
       }
   > | null;
@@ -4004,9 +7261,9 @@ export type QueryBlogIndexPageDataResult = {
   blogs: Array<{
     _type: "blog";
     _id: string;
-    title: string | null;
+    title: string;
     description: string | null;
-    slug: string | null;
+    slug: string;
     richText: RichText | null;
     orderRank: string | null;
     category:
@@ -4017,8 +7274,7 @@ export type QueryBlogIndexPageDataResult = {
       | "family-history"
       | "history"
       | "holidays"
-      | "names"
-      | null;
+      | "names";
     image:
       | {
           asset?: {
@@ -4044,12 +7300,11 @@ export type QueryBlogIndexPageDataResult = {
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
           _type: "image";
-        }
-      | null;
+        };
     publishedAt: string | null;
     authors: {
       _id: string;
-      name: string | null;
+      name: string;
       position: string | null;
       image:
         | {
@@ -4083,9 +7338,9 @@ export type QueryBlogIndexPageDataResult = {
   featuredBlogs: Array<{
     _type: "blog";
     _id: string;
-    title: string | null;
+    title: string;
     description: string | null;
-    slug: string | null;
+    slug: string;
     richText: RichText | null;
     orderRank: string | null;
     category:
@@ -4096,8 +7351,7 @@ export type QueryBlogIndexPageDataResult = {
       | "family-history"
       | "history"
       | "holidays"
-      | "names"
-      | null;
+      | "names";
     image:
       | {
           asset?: {
@@ -4123,12 +7377,11 @@ export type QueryBlogIndexPageDataResult = {
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
           _type: "image";
-        }
-      | null;
+        };
     publishedAt: string | null;
     authors: {
       _id: string;
-      name: string | null;
+      name: string;
       position: string | null;
       image:
         | {
@@ -4169,12 +7422,12 @@ export type QueryBlogSlugPageDataResult = {
   _updatedAt: string;
   _rev: string;
   orderRank?: string;
-  title?: string;
+  title: string;
   description?: string;
-  slug: string | null;
+  slug: string;
   authors: {
     _id: string;
-    name: string | null;
+    name: string;
     position: string | null;
     image:
       | {
@@ -4230,8 +7483,7 @@ export type QueryBlogSlugPageDataResult = {
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
-      }
-    | null;
+      };
   richText: Array<
     | {
         children?: Array<{
@@ -4256,15 +7508,113 @@ export type QueryBlogSlugPageDataResult = {
               _key: string;
             }
           | {
-              collection?: {
-                _ref: string;
-                _type: "reference";
-                _weak?: boolean;
-                [internalGroqTypeReferenceTo]?: "fragmentCollection";
+              collection: {
+                _id: string;
+                title: string;
+                key: Slug;
+                fragments: Array<
+                  | {
+                      _key: string;
+                      label: string;
+                      value: Array<
+                        | {
+                            children?: Array<{
+                              marks?: Array<string>;
+                              text?: string;
+                              _type: "span";
+                              _key: string;
+                            }>;
+                            style?:
+                              | "blockquote"
+                              | "h1"
+                              | "h2"
+                              | "h3"
+                              | "normal";
+                            listItem?: "bullet" | "number";
+                            markDefs?: Array<{
+                              href?: string;
+                              openInNewTab?: boolean;
+                              _type: "link";
+                              _key: string;
+                            }>;
+                            level?: number;
+                            _type: "block";
+                            _key: string;
+                          }
+                        | {
+                            asset?: {
+                              _ref: string;
+                              _type: "reference";
+                              _weak?: boolean;
+                              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                            };
+                            hotspot?: SanityImageHotspot;
+                            crop?: SanityImageCrop;
+                            _type: "image";
+                            _key: string;
+                          }
+                      >;
+                      key: string;
+                      isActive: boolean | null;
+                    }
+                  | {
+                      _key: string;
+                      label: string;
+                      value: number;
+                      key: string;
+                      isActive: boolean | null;
+                    }
+                  | {
+                      _key: string;
+                      label: string;
+                      value: string;
+                      key: string;
+                      isActive: boolean | null;
+                    }
+                >;
               };
-              fragment?: string;
-              _type: "fragmentValue";
+              fragment: string;
+              displayFormat?: "label-value" | "value-label" | "value-only";
+              _type: "inlineFragmentReference";
               _key: string;
+              resolvedValue:
+                | Array<
+                    | {
+                        children?: Array<{
+                          marks?: Array<string>;
+                          text?: string;
+                          _type: "span";
+                          _key: string;
+                        }>;
+                        style?: "blockquote" | "h1" | "h2" | "h3" | "normal";
+                        listItem?: "bullet" | "number";
+                        markDefs?: Array<{
+                          href?: string;
+                          openInNewTab?: boolean;
+                          _type: "link";
+                          _key: string;
+                        }>;
+                        level?: number;
+                        _type: "block";
+                        _key: string;
+                      }
+                    | {
+                        asset?: {
+                          _ref: string;
+                          _type: "reference";
+                          _weak?: boolean;
+                          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+                        };
+                        hotspot?: SanityImageHotspot;
+                        crop?: SanityImageCrop;
+                        _type: "image";
+                        _key: string;
+                      }
+                  >
+                | number
+                | string
+                | null;
+              resolvedLabel: string | null;
             }
         > | null;
         level?: number;
@@ -4286,7 +7636,7 @@ export type QueryBlogSlugPageDataResult = {
         markDefs: null;
       }
   > | null;
-  category?:
+  category:
     | "ancestry-news"
     | "customer-stories"
     | "dna"
@@ -4317,7 +7667,7 @@ export type QueryBlogSlugPageDataResult = {
 } | null;
 // Variable: queryBlogPaths
 // Query: *[_type == "blog" && defined(slug.current)].slug.current
-export type QueryBlogPathsResult = Array<string | null>;
+export type QueryBlogPathsResult = Array<string>;
 // Variable: queryHomePageOGData
 // Query: *[_type == "homePage" && _id == $id][0]{      _id,  _type,  "title": select(    defined(ogTitle) => ogTitle,    defined(seoTitle) => seoTitle,    title  ),  "description": select(    defined(ogDescription) => ogDescription,    defined(seoDescription) => seoDescription,    description  ),  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  "dominantColor": image.asset->metadata.palette.dominant.background,  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max",   "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",  "date": coalesce(date, _createdAt)  }
 export type QueryHomePageOGDataResult = {
@@ -4445,7 +7795,7 @@ export type QueryNavbarDataResult = {
           description: string | null;
           openInNewTab: boolean | null;
           href: string | null;
-        }> | null;
+        }>;
       }
   > | null;
   buttons: Array<{
@@ -4461,11 +7811,11 @@ export type QueryNavbarDataResult = {
 // Query: {  "slugPages": *[_type == "page" && defined(slug.current)]{    "slug": slug.current,    "lastModified": _updatedAt  },  "blogPages": *[_type == "blog" && defined(slug.current)]{    "slug": slug.current,    "lastModified": _updatedAt  }}
 export type QuerySitemapDataResult = {
   slugPages: Array<{
-    slug: string | null;
+    slug: string;
     lastModified: string;
   }>;
   blogPages: Array<{
-    slug: string | null;
+    slug: string;
     lastModified: string;
   }>;
 };
@@ -4474,7 +7824,7 @@ export type QuerySitemapDataResult = {
 export type QueryGlobalSeoSettingsResult = {
   _id: string;
   _type: "settings";
-  siteTitle: string | null;
+  siteTitle: string;
   logo:
     | {
         asset?: {
@@ -4502,7 +7852,7 @@ export type QueryGlobalSeoSettingsResult = {
         _type: "image";
       }
     | null;
-  siteDescription: string | null;
+  siteDescription: string;
   socialLinks: {
     linkedin: string | null;
     facebook: string | null;
@@ -4516,8 +7866,8 @@ export type QueryGlobalSeoSettingsResult = {
 export type QuerySettingsDataResult = {
   _id: string;
   _type: "settings";
-  siteTitle: string | null;
-  siteDescription: string | null;
+  siteTitle: string;
+  siteDescription: string;
   logo: string | null;
   socialLinks: {
     linkedin?: string;
